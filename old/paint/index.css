@@ -1,0 +1,17 @@
+.mono {
+  margin: 0;
+  padding: 0;
+  font-family: Monospace;
+  font-size: 14px;
+}
+.umono{
+  margin: 0;
+  padding: 0;
+  font-family: Monospace;
+  right: 0;
+}
+.spac {
+  margin: 0;
+  padding: 0;
+  font-family: Times New Roman;
+}
