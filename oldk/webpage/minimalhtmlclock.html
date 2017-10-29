@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Minimalist HTML Clock</title>
+        <link href='https://fonts.googleapis.com/css?family=Lato:100,300,400' rel='stylesheet' type='text/css'>
+        <style>
+            body {
+                background: rgb(245, 245, 245);
+                color: rgba(0, 0, 0, 0.3);
+                font-size: 30px;
+                font-family: Lato, Helvetica, Arial, sans-serif;
+                font-weight: 400;
+                text-align: center;
+            }
+            
+            #clock {
+                border: 10px solid rgba(0, 0, 0, 0.2);
+                border-radius: 90vh;
+                display: table;
+                position: fixed;
+                left: 50%;
+                top: 50%;
+                -webkit-transform: translate(-50%, -50%);
+                -moz-transform: translate(-50%, -50%);
+                -ms-transform: translate(-50%, -50%);
+                -o-transform: translate(-50%, -50%);
+                transform: translate(-50%, -50%);
+                width: 90vh;
+                height: 90vh;
+            }
+            
+            .date {
+                color: rgba(200, 200, 200, 0.2);
+                display: table-cell;
+                font-size: 75px;
+                font-weight: 300;
+                line-height: 80px;
+                vertical-align: middle;
+            }
+            #month {
+                font-size: 70px;
+            }
+            #day {
+                font-size: 90px;
+            }
+            
+            .hand {
+                background: rgba(0, 0, 0, 0.2);
+                border-radius: 4px;
+                position: fixed;
+                -webkit-transform-origin: 4px 50%;
+                -moz-transform-origin: 4px 50%;
+                -ms-transform-origin: 4px 50%;
+                -o-transform-origin: 4px 50%;
+                transform-origin: 4px 50%;
+                height: 8px;
+            }
+            #hour {
+                width: 25vh;
+            }
+            #minute {
+                width: 40vh;
+            }
+            #second {
+                -webkit-transform-origin: 1.5px 50%;
+                -moz-transform-origin: 1.5px 50%;
+                -ms-transform-origin: 1.5px 50%;
+                -o-transform-origin: 1.5px 50%;
+                transform-origin: 1.5px 50%;
+                width: 43vh;
+                height: 3px;
+            }
+            
+            .number {
+                position: fixed;
+                width: 30px;
+                height: 30px;
+                -webkit-transform: translate(-50%, -50%);
+                -moz-transform: translate(-50%, -50%);
+                -ms-transform: translate(-50%, -50%);
+                -o-transform: translate(-50%, -50%);
+                transform: translate(-50%, -50%);
+            }
+        </style>
+    </head>
+    <body>
+        <div id="clock">
+            <div class="date">
+                <div id="month"></div>
+                <div id="day"></div>
+            </div>
+        </div>
+        <div id="hour" class="hand"></div>
+        <div id="minute" class="hand"></div>
+        <div id="second" class="hand"></div>
+
+        
+        <script>
+            var monthNode = document.getElementById("month");
+            var dayNode = document.getElementById("day");
+            
+            var hour = document.getElementById("hour");
+            var minute = document.getElementById("minute");
+            var second = document.getElementById("second");
+            for(var n = 1; n <= 12; n++){
+                number = document.createElement("div");
+                number.className = "number";
+                number.id = "number-" + n;
+                number.innerHTML = n;
+                document.body.appendChild(number);
+            }
+            
+            function setPositions(){
+                var W = Math.max(document.documentElement["clientWidth"], document.body["scrollWidth"], document.documentElement["scrollWidth"], document.body["offsetWidth"], document.documentElement["offsetWidth"]);
+                var H = Math.max(document.documentElement["clientHeight"], document.body["scrollHeight"], document.documentElement["scrollHeight"], document.body["offsetHeight"], document.documentElement["offsetHeight"]);
+                
+                hour.style.left = (W / 2 - 4) + "px";
+                hour.style.top = (H / 2 - 4) + "px";
+                minute.style.left = (W / 2 - 4) + "px";
+                minute.style.top = (H / 2 - 4) + "px";
+                second.style.left = (W / 2 - 1.5) + "px";
+                second.style.top = (H / 2 - 1.5) + "px";
+                
+                for(var n = 1; n <= 12; n++){
+                    number = document.getElementById("number-" + n);
+                    number.style.left = (W / 2 + Math.cos((n - 3) * Math.PI/6) * H * 0.38) + "px";
+                    number.style.top = (H / 2 + Math.sin((n - 3) * Math.PI/6) * H * 0.38) + "px";
+                }
+            };
+            setPositions();
+            window.onresize = function(event) {
+                setPositions();
+            }
+            
+            function rotateElement(element, deg){
+                var transform = "rotate(" + deg + "deg)";
+                element.style.webkitTransform = transform;
+                element.style.mozTransform = transform;
+                element.style.msTransform = transform;
+                element.style.oTransform = transform;
+                element.style.transform = transform;
+            };
+            
+            function update(){
+                var date = new Date();
+                
+                monthNode.innerHTML = ["JANURARY", "FEBURARY", "MARCH", "APRIL", "MAY", "JUNE", "JULY", "AUGUST", "SEPTEMBER", "OCTOBER", "NOVEMBER", "DECEMBER"][date.getMonth()]; 
+                dayNode.innerHTML = date.getDate(); 
+                
+                rotateElement(hour, (date.getHours() + date.getMinutes() / 60 + date.getSeconds() / 60 / 60) / 12 * 360 - 90);
+                rotateElement(minute, (date.getMinutes() + date.getSeconds() / 60) / 60 * 360 - 90);
+                rotateElement(second, (date.getSeconds() + date.getMilliseconds() / 1000) / 60 * 360 - 90);
+            }
+            
+            update();
+            
+            setInterval(update, 40);
+        </script>
+    </body>
+</html>
