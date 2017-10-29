@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<!-- This is based on DillingerLee's great template here:
+https://github.com/Team-Code/KA_Offline -->
+<html> 
+ <head>
+    <title>Cube and Sphere</title> 
+</head>
+ <body>
+    <p align="center"> 
+	<!--This draws the Canvas on the webpage -->
+      <canvas id="mycanvas"></canvas> 
+    </p>
+ </body>
+ 
+ <!-- Run all the JavaScript stuff -->
+ <!-- Include the processing.js library -->
+ <!-- See https://khanacademy.zendesk.com/hc/en-us/articles/202260404-What-parts-of-ProcessingJS-does-Khan-Academy-support- for differences -->
+ <script src="https://cdn.jsdelivr.net/processing.js/1.4.8/processing.min.js"></script> 
+ 
+ <script>
+    var sketchProc = function(processingInstance) {
+     with (processingInstance) {
+         angleMode = "degrees";
+        size(400, 400, P3D);
+        noStroke();
+        background(0);
+        
+        lights();
+        var cameraZ = ((height/2.0) / tan(PI*60.0/360.0));
+        perspective(PI/3.0, width/height, cameraZ/10.0, cameraZ*10.0);
+        ambient(255);
+        mouseDragged = function() {
+        pushMatrix();
+        translate(130, 200, 50);
+        background(0, 0, 0);
+        rotateX(mouseX / 30);
+        rotateY(mouseY / 30);
+        box(100);
+        popMatrix();
+        pushMatrix();
+        translate(260, 200, 50);
+        rotateX(mouseX / 30);
+        rotateY(mouseY / 30);
+        sphere(50);
+        popMatrix();
+        };
+    }};
+
+    // Get the canvas that Processing-js will use
+    var canvas = document.getElementById("mycanvas"); 
+    // Pass the function sketchProc (defined in myCode.js) to Processing's constructor.
+    var processingInstance = new Processing(canvas, sketchProc); 
+ </script>
+
+</html>
