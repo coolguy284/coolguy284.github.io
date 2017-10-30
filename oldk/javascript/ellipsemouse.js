@@ -1,0 +1,21 @@
+ellipse(20, 20, 40, 40);
+fill(255, 0, 0);
+ellipse(20, 20, 30, 30);
+fill(255, 255, 0);
+ellipse(20, 20, 20, 20);
+fill(0, 255, 0);
+ellipse(20, 20, 10, 10);
+strokeWeight(2);
+stroke(0, 0, 255);
+line(20, 0, 20, 40);
+line(0, 20, 40, 20);
+var img = get(0, 0, 40, 40);
+background(255);
+imageMode(CENTER);
+image(img, mouseX, mouseY);
+cursor('NONE');
+draw = function() {
+    background(255);
+    imageMode(CENTER);
+    image(img, mouseX, mouseY);
+};
