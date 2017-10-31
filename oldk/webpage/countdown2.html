@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<!-- This is based on DillingerLee's great template here:
+https://github.com/Team-Code/KA_Offline -->
+<html> 
+ <head>
+    <title>Countdown 2</title> 
+</head>
+ <body>
+    <p align="center"> 
+      <canvas id="mycanvas"></canvas> 
+    </p>
+ </body>
+ <script src="https://cdn.jsdelivr.net/processing.js/1.4.8/processing.min.js"></script> 
+ <script>
+    var sketchProc = function(processingInstance) {
+with (processingInstance) {
+var width = 600;
+var height = 400;
+size(width, height, P3D);
+var zf = function(val) {
+    if (val < 10) {
+        return '0' + val;
+    }
+    return val;
+};
+var zfm = function(val) {
+    if (val < 10) {
+        return '00' + val;
+    } else if (val < 100) {
+        return '0' + val;
+    }
+    return val;
+};
+var l = function(year) {
+    if ((year % 4) == 0) {
+        return 1;
+    }
+    return 0;
+};
+var yearday = function(year, month, day) {
+    var m = 0
+    if (month == 1) {
+        m = 0;
+    } else if (month == 2) {
+        m = 31;
+    } else if (month == 3) {
+        m = 59 + l(year);
+    } else if (month == 4) {
+        m = 90 + l(year);
+    } else if (month == 5) {
+        m = 120 + l(year);
+    } else if (month == 6) {
+        m = 151 + l(year);
+    } else if (month == 7) {
+        m = 181 + l(year);
+    } else if (month == 8) {
+        m = 212 + l(year);
+    } else if (month == 9) {
+        m = 243 + l(year);
+    } else if (month == 10) {
+        m = 273 + l(year);
+    } else if (month == 11) {
+        m = 304 + l(year);
+    } else if (month == 12) {
+        m = 334 + l(year);
+    }
+};
+var r = function(v) {
+    if (v < 0) {
+        return '-' + r(-v);
+    }
+    v = floor(v * 1000000);
+    if (v > 1000000) {
+        return floor(v / 1000000) + r((v / 1000000) % 1);
+    } else if (v < 10) {
+        v = '00000' + v;
+    } else if (v < 100) {
+        v = '0000' + v;
+    } else if (v < 1000) {
+        v = '000' + v;
+    } else if (v < 10000) {
+        v = '00' + v;
+    } else if (v < 100000) {
+        v = '0' + v;
+    } else if (v <= 1000000) {
+        v = '' + v;
+    }
+    v = '' + v;
+    return v[0] + v[1] + '.' + v[2] + v[3] + v[4] + v[5] + '%';
+};
+var f = function(l) {
+    return l % 1;
+};
+var conv = function(yr, mon, day, hr, min, sec, mil) {
+    return hr * 3600 + min * 60 + sec + mil / 1000;
+};
+var unconv = function(tim) {
+    var add;
+    if (tim < 0) {
+        add = '-';
+        tim *= -1;
+    } else {
+        add = '';
+    }
+    var a = [floor(tim / 3600) % 60, floor(tim / 60) % 60, floor(tim) % 60, floor(tim * 1000) % 1000];
+    return [a, add + zf(a[0]) + ':' + zf(a[1]) + ':' + zf(a[2]) + '.' + zfm(a[3])];
+};
+var date = new Date();
+var ctime = function() {
+    return date.getHours() * 3600 + date.getMinutes() * 60 + date.getSeconds() + date.getMilliseconds() / 1000;
+};
+var from = conv(year(), month(), day(), 8, 0, 0, 0);
+var to = conv(year(), month(), day(), 14, 24, 50, 0); //-2.5 secs
+/*
+09:13
+09:56
+10:45
+*/
+var dur = to - from;
+textFont(createFont('arial bold'));
+noStroke();
+draw = function() {
+    date = new Date();
+    background(0);
+    textAlign(CENTER, CENTER);
+    fill(0, 255, 0);
+    textSize(40);
+    var ct = ctime();
+    var tf = f(1 - ((to - ctime()) / (to - from)));
+    var tf2 = (tf * width - floor(tf * width));
+    text('Time Left:', width / 2, 0);
+    text(unconv(to - ct)[1], width / 2, 40);
+    text(r(1 - ((to - ctime()) / (to - from))), width / 2, 80);
+    textSize(25);
+    text('Time Passed:\n' + unconv(ct - from)[1], width / 2, 135);
+    text('From:\n' + unconv(from)[1], width * 0.25, 190);
+    text('To:\n' + unconv(to)[1], width * 0.75, 190);
+    text('Duration:\n' + unconv(dur)[1], width * 0.25, 250);
+    text('Current Time:\n' + unconv(ctime())[1], width * 0.75, 250);
+    if (tf >= 0) {
+        rect(0, 300, floor(tf * width), 30);
+    } else {
+        rect(width-floor(-tf * width), 300, floor(-tf * width), 30);
+    }
+    rect(0, 350, tf2 * width, 30);
+    textAlign(LEFT, TOP);
+    textSize(20);
+    text(r(tf), 0, 323);
+    text(r(tf2), 0, 373);
+    text(floor(tf * width) + '/' + width, 120, 323);
+    text(floor(tf2 * width) + '/' + width, 120, 373);
+    text(floor(tf * width) * width + floor(tf2 * width) + '/' + sq(width), 220, 373);
+};
+}};
+    var canvas = document.getElementById("mycanvas"); 
+    var processingInstance = new Processing(canvas, sketchProc);
+ </script>
+</html>
