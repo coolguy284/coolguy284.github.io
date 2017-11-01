@@ -7,7 +7,7 @@ var SetBG, SetFG, SetBGC, SetFGC, ResetBG, ResetFG, SetCol, ResetCol;
 var Stop, Freeze, Mystery, Button;
 var PRI, simplede, simpled;
 var date, dl, from, to, dur;
-var bgcol, fgcol, tl, tf, ntf, tf2;
+var bgcol, fgcol, offset, tl, tf, ntf, tf2;
 Math.atanh = Math.atanh || function(x) {
   return Math.log((1+x)/(1-x)) / 2;
 };
@@ -326,6 +326,24 @@ RevSelect = function() {
   } else {
     opts.value = 'custom';
   }
+  /*dlk = dl.keys()
+  dlv = dl.values()
+  dlkf = [];
+  dlkt = [];
+  dlvf = [];
+  dlvt = [];
+  for (var i = 0; i < dlk.length / 2; i ++) {
+    dlkf.append(dlk[i])
+    dlvf.append(dlv[i])
+    dlkt.append(dlk[i+1])
+    dlvt.append(dlk[i+1])
+  }
+  console.log(dlkf);
+  for (var i = 0; i < dlkf.length; i ++) {
+    if ((from.toISOString() == dlvf[i]) && (to.toISOString() == dlvt[i])) {
+      opts.value = dlkf[i].substring(0, -1)
+    }
+  }*/
   console.log('Set opts to: ' + opts.value)
 };
 UpdateSelect = function() {
@@ -484,6 +502,15 @@ ResetCol = function() {
   simple.style.color = fgcolor.value + '';
   console.log('Reset Background To: ' + bgcolor.value + ', Foreground To: ' + fgcolor.value);
 };
+SetOffset = function() {
+  offset = parseInt(offsetv.value);
+  console.log('Set Offset To: ' + offsetv.value);
+};
+ResetOffset = function() {
+  offset = 0;
+  offsetv.value = offset;
+  console.log('Reset Offset To: ' + offsetv.value);
+};
 Stop = function() {
   drawe = function () {};
   console.log('Stopped Drawing');
@@ -507,13 +534,14 @@ to = new Date(dl.st);
 dur = to.getTime() - from.getTime();
 bgcol = color(0, 0, 0);
 fgcol = color(0, 255, 0);
+offset = 0;
 draw = function() {
   try {
     drawe();
   } catch (e) {}
 };
 drawe = function() {
-  date = new Date();
+  date = new Date((new Date()).getTime() + offset);
   tl = to.getTime() - date.getTime();
   tf = 1 - (tl / dur);
   tf1 = (1 - (tl / dur)) % 1;
@@ -610,6 +638,7 @@ onloade = function() {
   endval.value = localStorage.getItem('endval2');
   bgcolor.value = localStorage.getItem('bgcolor2');
   fgcolor.value = localStorage.getItem('fgcolor2');
+  offsetv.value = localStorage.getItem('offset2');
   if (startval.value == '' || endval.value == '') {
     Reset();
   } else {
@@ -619,6 +648,11 @@ onloade = function() {
     ResetCol();
   } else {
     SetCol();
+  }
+  if (offsetv.value == '') {
+    ResetOffset();
+  } else {
+    SetOffset();
   }
 };
 onload = onloade;
