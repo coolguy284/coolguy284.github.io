@@ -45,6 +45,11 @@
     <div class = 'tab'>
       <button class = 'tablinks' onclick = 'SwitchTab(event, "canvas")'>Canvas</button>
       <button class = 'tablinks' onclick = 'SwitchTab(event, "simple")'>Simple</button>
+      <label for = 'offsetv'>Offset:</label>
+      <input class = 'mono' type = 'text' id = 'offsetv' name = 'offsetv' style = 'width: 4em;'>
+      <button id = 'offsets' onclick = 'SetOffset()'>Set Offset</button>
+      <button id = 'offsetr' onclick = 'ResetOffset()'>Reset Offset</button>
+    </div>
     <div class = 'tabcontent' id = 'canvas'>
       <p class = 'mono' align='center'>
         <canvas id='mycanvas'>
