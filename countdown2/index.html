@@ -6,11 +6,10 @@
     <link href='https://coolguy284.github.io/favicon.ico' rel='shortcut icon' type='image/x-icon' />
   </head>
   <body id = 'idd'>
-    <a href='#hide1' class='hide' id='hide1'>+</a>
-    <a href='#show1' class='show' id='show1'>-</a>
-    <div class='menuu'>Menu</div>
-    <div id = 'menu' class = 'list'>
-      <p class = 'mono'><br><br><br>Time Format:</p>
+    <button id = 'togg' onclick = 'Toggle()'>+</button>
+    <span>Menu</span>
+    <div id = 'menu' style = 'display:none'>
+      <p class = 'mono'>Time Format:</p>
       <p class = 'mono'><span class = 'spac'>&#8202;&#8202;</span>YYYY-MM-DDTHH:MM:SS.LLLZ</p>
       <input class = 'mono' type = 'text' id = 'startval' name = 'startval' style='width: 14.5em;'>
       <button onclick = 'SetStart()'>Set Start</button>
@@ -66,9 +65,9 @@
       <button onclick = 'onloade()'>Reload</button>
       <button onclick = 'onunload()'>Save Changes</button>
       <button onclick = 'Mystery()'>Mystery</button>
-      <button onclick = 'Button()'>Button</button>
+      <button onclick = 'Button()'>Button</button><br>
     </div>
-    <div class = 'tab'><br><br><br>
+    <div class = 'tab'>
       <button class = 'tablinks' onclick = 'SwitchTab(event, "canvas")'>Canvas</button>
       <button class = 'tablinks' onclick = 'SwitchTab(event, "simple")'>Simple</button>
     </div>
