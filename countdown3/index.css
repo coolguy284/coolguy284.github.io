@@ -1,0 +1,112 @@
+.mono {
+  margin: 0;
+  padding: 0;
+  font-family: Monospace;
+  font-size: 14px;
+}
+.umono{
+  margin: 0;
+  padding: 0;
+  font-family: Monospace;
+  right: 0;
+}
+.spac {
+  margin: 0;
+  padding: 0;
+  font-family: Times New Roman;
+}
+#simple {
+  position: relative;
+  width: 600px;
+  height: 404px;
+  margin: auto;
+  background: #000;
+  color: #0f0;
+}
+.prog {
+  width: 100%;
+}
+.span {
+  font-family: Arial;
+  font-size: 20px;
+  line-height: 18px;
+}
+.pree {
+  font-size: 20px;
+  font-family: Arial;
+  line-height: 20px;
+}
+#hdiv {
+  text-align: center;
+}
+.spanh {
+  font-size: 40px;
+  font-family: Arial;
+  display: inline-block;
+  line-height: 37px;
+}
+#mlab {
+  position: absolute;
+  left: 10px;
+  top: 120px;
+}
+#mpres {
+  position: absolute;
+  left: 140px;
+  top: 120px;
+}
+#logd {
+  position: absolute;
+  left: 480px;
+  top: 120px;
+  line-height: 23px;
+}
+
+
+.list {
+    display:none; 
+    height:auto;
+}
+.show {
+    display: none; 
+}
+.hide:target + .show {
+    display: inline; 
+}
+.hide:target {
+    display: none; 
+}
+.hide:target ~ .list {
+    display: inline; 
+}
+/*style the (+) and (-) */
+.hide, .show {
+	width: 30px;
+	height: 30px;
+	border-radius: 30px;
+	font-size: 20px;
+	color: #fff;
+	text-shadow: 0 1px 0 #666;
+	text-align: center;
+	text-decoration: none;
+	box-shadow: 1px 1px 2px #000;
+	background: #cccbbb;
+	opacity: .95;
+	margin-right: 0;
+	float: left;
+}
+.hide:hover, .show:hover {
+	color: #eee;
+	text-shadow: 0 0 1px #666;
+	text-decoration: none;
+	box-shadow: 0 0 4px #222 inset;
+	opacity: 1;
+}
+.question {
+	float: left;
+	height: auto;
+	width: 90%;
+	line-height: 20px;
+	padding-left: 20px;
+	margin-bottom: 25px;
+}
