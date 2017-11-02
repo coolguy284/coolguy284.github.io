@@ -3,7 +3,8 @@ var zf, zfm, zff, datearr, datestr, dateg, perc, nr, mr, hexu, hexv;
 var modf, modf2, modf3, modf4, modf5, modf6;
 var SetStart, ResetStart, SetEnd, ResetEnd;
 var Setf, Reset, Current, UpdDate, RevSelect, UpdateSelect;
-var SetBG, SetFG, SetBGC, SetFGC, ResetBG, ResetFG, SetCol, ResetCol;
+var SetBG, SetFG, SetBGC, SetFGC, ResetBG, ResetFG;
+var SetCol, ResetCol, SetOffset, ResetOffset;
 var Stop, Freeze, Mystery, Button;
 var PRI, simplede, simpled;
 var date, dl, from, to, dur;
@@ -25,6 +26,15 @@ var SwitchTab = function(event, tabv) {
   }
   document.getElementById(tabv).style.display = "block";
   event.currentTarget.className += " active";
+};
+var Toggle = function() {
+  if (togg.innerHTML == '+') {
+    togg.innerHTML = '-'
+    menu.style = ''
+  } else if (togg.innerHTML == '-') {
+    togg.innerHTML = '+'
+    menu.style = 'display:none'
+  }
 };
 {
 zf = function(val) {
