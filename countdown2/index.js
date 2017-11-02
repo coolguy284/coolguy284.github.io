@@ -510,7 +510,21 @@ ResetOffset = function() {
   offset = 0;
   offsetv.value = offset;
   console.log('Reset Offset To: ' + offsetv.value);
+};/*
+getTime = function(zone, success) {
+var url = 'http://json-time.appspot.com/time.json?tz=' + zone,
+ud = 'json' + (+new Date());
+window[ud]= function(o) {
+success && success(new Date(o.datetime));
 };
+document.getElementsByTagName('head')[0].appendChild((function(){
+var s = document.createElement('script');
+s.type = 'text/javascript';
+s.src = url + '&callback=' + ud;
+return s;
+})());
+};
+getTime('GMT', function(time){ alert(time.toISOString()); });*/
 Stop = function() {
   drawe = function () {};
   console.log('Stopped Drawing');
@@ -661,5 +675,6 @@ onunload = function() {
   localStorage.setItem('endval2', endval.value);
   localStorage.setItem('bgcolor2', bgcolor.value);
   localStorage.setItem('fgcolor2', fgcolor.value);
+  localStorage.setItem('offset2', offsetv.value)
   return null;
 };
