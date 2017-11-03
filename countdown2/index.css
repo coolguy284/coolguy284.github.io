@@ -61,16 +61,9 @@
   top: 120px;
   line-height: 23px;
 }
-
-.list {
-  display:none; 
-  height:auto;
-}
-.menuu {
-  float: left;
-  height: auto;
-  width: 90%;
-  line-height: 20px;
-  padding-left: 10px;
-  margin-bottom: 25px;
+.mdiv {
+  position: absolute;
+  left: 0;
+  top: 30px;
+  background: #fff;
 }
