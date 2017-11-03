@@ -28,12 +28,14 @@ var SwitchTab = function(event, tabv) {
   event.currentTarget.className += " active";
 };
 var Toggle = function() {
-  if (togg.innerHTML == '+') {
-    togg.innerHTML = '-'
-    menu.style = ''
-  } else if (togg.innerHTML == '-') {
-    togg.innerHTML = '+'
-    menu.style = 'display:none'
+  if (togg.innerHTML == 'Collapse') {
+    togg.innerHTML = 'Expand';
+    coll1.style = 'display:none';
+    coll2.style = 'display:none';
+  } else if (togg.innerHTML == 'Expand') {
+    togg.innerHTML = 'Collapse';
+    coll1.style = '';
+    coll2.style = '';
   }
 };
 {
