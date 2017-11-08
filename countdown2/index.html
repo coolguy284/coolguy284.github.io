@@ -51,6 +51,8 @@
       <input class = 'mono' type = 'text' id = 'offsetv' name = 'offsetv' style = 'width: 4em;'>
       <button id = 'offsets' onclick = 'SetOffset()'>Set Offset</button>
       <button id = 'offsetr' onclick = 'ResetOffset()'>Reset Offset</button>
+      <label for = 'tzswitch'>Timezone:</label>
+      <button id = 'tzswitch' onclick = 'SwitchTZ()'>Local</button>
     </span>
     <div class = 'tabcontent' id = 'canvas'>
       <p class = 'mono' align='center'>
@@ -83,10 +85,12 @@
 <span class = 'span' id = 'perc2'>00.0000%</span>     <span class = 'span' id = 'perc2a'>000/600</span>     <span class = 'span' id = 'perc2b'>000000/360000</span></pre>
       <div id = 'mpres'>
         <span class = 'span' id = 'sele1'>000:00:00:00.000</span><br>
-        <span class = 'span' id = 'sele2'>000:00:00:00.000</span><br>
-        <span class = 'span' id = 'sele3'>0000-00-00T00:00:00.000Z</span><br>
-        <span class = 'span' id = 'sele4'>0000-00-00T00:00:00.000Z</span><br>
-        <span class = 'span' id = 'sele5'>0000-00-00T00:00:00.000Z</span><br>
+        <span class = 'span' id = 'sele2'>000:00:00:00.000</span><br><br><br><br>
+        <div id = 'dates'>
+          <span class = 'span' id = 'sele3'>0000-00-00T00:00:00.000Z</span><br>
+          <span class = 'span' id = 'sele4'>0000-00-00T00:00:00.000Z</span><br>
+          <span class = 'span' id = 'sele5'>0000-00-00T00:00:00.000Z</span><br>
+        </div>
         <span class = 'span' id = 'sele6'>00.0000</span><br>
         <span class = 'span' id = 'sele7'>.000000</span><br>
         <span class = 'span' id = 'sele8'>.000000</span><br>
