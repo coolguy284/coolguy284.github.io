@@ -5,37 +5,60 @@
     <link href='index.css' rel='stylesheet' type='text/css' />
     <link href='https://coolguy284.github.io/favicon.ico' rel='shortcut icon' type='image/x-icon' />
   </head>
-  <body>
-    <p class = 'mono'>Time Format:</p>
-    <p class = 'mono'><span class = 'spac'>&#8202;&#8202;</span>HH:MM:SS.LLL</p>
-    <input class = 'mono' type = 'datetime' id = 'startval' name = 'startval' style='width: 8em;'>
-    <button onclick = 'SetStart()'>Set Start</button>
-    <button onclick = 'ResetStart()'>Reset Start</button><br>
-    <input class = 'mono' type = 'datetime' id = 'endval' name = 'endval' style='width: 8em;'>
-    <button onclick = 'SetEnd()'>Set End</button>
-    <button onclick = 'ResetEnd()'>Reset End</button><br>
-    <button onclick = 'Setf()'>Set</button>
-    <button onclick = 'Reset()'>Reset</button>
-    <button onclick = 'Current()'>Current</button><br>
-    <p class = 'mono' align='center'>
-      <canvas id='mycanvas'>Your browser does not support canvases. :(</canvas> 
-    </p>
-    <button onclick = 'Stop()'>Stop</button>
-    <button onclick = 'Freeze()'>Freeze</button>
-    <span class = 'mono'>Warning: Will freeze tab!</span>
-    <button onclick = 'onloade()'>Reload</button>
-    <button onclick = 'onunload()'>Save Changes</button>
-    <button onclick = 'Button()'>Button</button><br>
-    <input class = 'mono' type = 'color' id = 'bgcolorp' name = 'bgcolorp' style='width: 5em;'>
-    <input class = 'mono' type = 'text' id = 'bgcolor' name = 'bgcolor' style='width: 5em;'>
-    <button onclick = 'SetBG()'>Set Background</button>
-    <button onclick = 'ResetBG()'>Reset Background</button><br>
-    <input class = 'mono' type = 'color' id = 'fgcolorp' name = 'fgcolorp' style='width: 5em;'>
-    <input class = 'mono' type = 'text' id = 'fgcolor' name = 'fgcolor' style='width: 5em;'>
-    <button onclick = 'SetFG()'>Set Foreground</button>
-    <button onclick = 'ResetFG()'>Reset Foreground</button><br>
-    <button onclick = 'SetCol()'>Set Color</button>
-    <button onclick = 'ResetCol()'>Reset Color</button><br>
+  <body id = 'idd'>
+    <span id = 'coll1'>
+      <p class = 'mono'>Time Format:</p>
+      <p class = 'mono'><span class = 'spac'>&#8202;&#8202;</span>HH:MM:SS.LLL</p>
+      <input class = 'mono' type = 'datetime' id = 'startval' name = 'startval' style='width: 8em;'>
+      <button onclick = 'SetStart()'>Set Start</button>
+      <button onclick = 'ResetStart()'>Reset Start</button><br>
+      <input class = 'mono' type = 'datetime' id = 'endval' name = 'endval' style='width: 8em;'>
+      <button onclick = 'SetEnd()'>Set End</button>
+      <button onclick = 'ResetEnd()'>Reset End</button><br>
+      <button onclick = 'Setf()'>Set</button>
+      <button onclick = 'Reset()'>Reset</button>
+      <button onclick = 'Current()'>Current</button><br>
+      <span class = 'tab'>
+        <button class = 'tablinks' onclick = 'SwitchTab(event, "canvas")'>Canvas</button>
+        <button class = 'tablinks' onclick = 'SwitchTab(event, "simple")'>Simple</button>
+      </span>
+      <label for = 'offsetv'>Offset (In Milliseconds):</label>
+        <input class = 'mono' type = 'text' id = 'offsetv' name = 'offsetv' style = 'width: 4em;'>
+        <button id = 'offsets' onclick = 'SetOffset()'>Set Offset</button>
+        <button id = 'offsetr' onclick = 'ResetOffset()'>Reset Offset</button><br>
+    </span>
+    <div class = 'tabcontent' id = 'canvas'>
+      <p class = 'mono' align = 'center'>
+        <canvas id='mycanvas'>Your browser does not support canvases. :(</canvas> 
+      </p>
+    </div>
+    <div class = 'tabcontent' id = 'simple' hidden>
+      <div id = 'hdiv'>
+        <span class = 'spanh'>Time Left:<br>
+        <span class = 'spanh' id = 'head1'>00:00:00.000</span><br>
+        <span class = 'spanh' id = 'head2'>00.0000%</span></span>
+      </div>
+    </div>
+    <span id = 'coll2'>
+      <button onclick = 'Stop()'>Stop</button>
+      <button onclick = 'Freeze()'>Freeze</button>
+      <span class = 'mono'>Warning: Will freeze tab!</span>
+      <button onclick = 'onloade()'>Reload</button>
+      <button onclick = 'onunload()'>Save Changes</button>
+      <button onclick = 'Mystery()'>Mystery</button>
+      <button onclick = 'Button()'>Button</button><br>
+      <input class = 'mono' type = 'color' id = 'bgcolorp' name = 'bgcolorp' style='width: 5em;'>
+      <input class = 'mono' type = 'text' id = 'bgcolor' name = 'bgcolor' style='width: 5em;'>
+      <button onclick = 'SetBG()'>Set Background</button>
+      <button onclick = 'ResetBG()'>Reset Background</button><br>
+      <input class = 'mono' type = 'color' id = 'fgcolorp' name = 'fgcolorp' style='width: 5em;'>
+      <input class = 'mono' type = 'text' id = 'fgcolor' name = 'fgcolor' style='width: 5em;'>
+      <button onclick = 'SetFG()'>Set Foreground</button>
+      <button onclick = 'ResetFG()'>Reset Foreground</button><br>
+      <button onclick = 'SetCol()'>Set Color</button>
+      <button onclick = 'ResetCol()'>Reset Color</button>
+    </span>
+    <button onclick = 'Toggle()' id = 'togg'>Collapse</button>
     <script src='https://cdn.jsdelivr.net/processing.js/1.4.8/processing.min.js'></script>
     <script src='https://coolguy284.github.io/countdowntime.js'></script>
     <script src='index.js'></script>
