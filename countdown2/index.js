@@ -15,6 +15,7 @@ Math.atanh = Math.atanh || function(x) {
 widthe = 600;
 heighte = 400;
 tzmode = 'Local';
+{
 var SwitchTab = function(event, tabv) {
   var i, tabcontent, tablinks;
   tabcontent = document.getElementsByClassName("tabcontent");
@@ -48,6 +49,7 @@ var SwitchTZ = function() {
     tzswitch.innerHTML = 'Local';
   }
 };
+}
 {
 zf = function(val) {
   if (val < 0) {
@@ -715,7 +717,7 @@ onloade = function() {
   } else {
     SetOffset();
   }
-  if (tzmode == 'null') {
+  if (tzmode == 'null' || tzmode == null) {
     tzmode = 'Local';
   }
 };
