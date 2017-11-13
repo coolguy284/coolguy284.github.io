@@ -1,6 +1,6 @@
-var widthe, heighte;
+var widthe, heighte, tzmode;
 var zf, zfm, zff, datearr, datestr, dateg, perc, nr, mr, hexu, hexv;
-var modf, modf2, modf3, modf4, modf5, modf6;
+var modf, modf2, modf3, modf4, modf5, modf6, locd;
 var SetStart, ResetStart, SetEnd, ResetEnd;
 var Setf, Reset, Current, UpdDate, RevSelect, UpdateSelect;
 var SetBG, SetFG, SetBGC, SetFGC, ResetBG, ResetFG;
@@ -14,6 +14,7 @@ Math.atanh = Math.atanh || function(x) {
 };
 widthe = 600;
 heighte = 400;
+tzmode = 'Local';
 var SwitchTab = function(event, tabv) {
   var i, tabcontent, tablinks;
   tabcontent = document.getElementsByClassName("tabcontent");
@@ -28,12 +29,23 @@ var SwitchTab = function(event, tabv) {
   event.currentTarget.className += " active";
 };
 var Toggle = function() {
-  if (togg.innerHTML == '+') {
-    togg.innerHTML = '-'
-    menu.style = ''
-  } else if (togg.innerHTML == '-') {
-    togg.innerHTML = '+'
-    menu.style = 'display:none'
+  if (togg.innerHTML == 'Collapse') {
+    togg.innerHTML = 'Expand';
+    coll1.style = 'display:none';
+    coll2.style = 'display:none';
+  } else if (togg.innerHTML == 'Expand') {
+    togg.innerHTML = 'Collapse';
+    coll1.style = '';
+    coll2.style = '';
+  }
+};
+var SwitchTZ = function() {
+  if (tzswitch.innerHTML == 'Local') {
+    tzmode = 'UTC';
+    tzswitch.innerHTML = 'UTC';
+  } else if (tzswitch.innerHTML == 'UTC') {
+    tzmode = 'Local';
+    tzswitch.innerHTML = 'Local';
   }
 };
 {
@@ -198,6 +210,10 @@ modf6 = function(tif) {
   v = -Math.log(1-tif) / Math.log(2);
   return modf5(v);
 };
+locd = function(date) {
+  var ds = date.toString();
+  return ds.substring(0, 24) + '.' + zfm(date.getMilliseconds()) + ' ' + ds.substring(25, 33);
+}
 SetStart = function() {
   try {
     frome = new Date(startval.value);
@@ -584,14 +600,22 @@ drawe = function() {
   textSize(20);
   text('Time Passed:', 10, 120);
   text(dateg(date.getTime() - from.getTime()), 140, 120);
-  text('From:', 10, 160);
-  try {text(from.toISOString(), 140, 160);} catch (e) {}
-  text('To:', 10, 180);
-  try {text(to.toISOString(), 140, 180);} catch (e) {}
   text('Duration:', 10, 140);
   text(dateg(dur), 140, 140);
+  text('From:', 10, 160);
+  text('To:', 10, 180);
   text('Current Time:', 10, 200);
-  text(date.toISOString(), 140, 200);
+  if (tzmode == 'Local') {
+    textSize(17);
+    try {text(locd(from), 140, 162);} catch (e) {}
+    try {text(locd(to), 140, 182);} catch (e) {}
+    text(locd(date), 140, 202);
+  } else if (tzmode == 'UTC') {
+    try {text(from.toISOString(), 140, 160);} catch (e) {}
+    try {text(to.toISOString(), 140, 180);} catch (e) {}
+    text(date.toISOString(), 140, 200);
+  }
+  textSize(20);
   text('Degrees:', 10, 220);
   text(nr(tf1 * 180 - 90), 140, 220);
   text('Tangent:', 10, 240);
@@ -635,9 +659,21 @@ simplede = function() {
   head2.innerHTML = perc(tf);
   sele1.innerHTML = dateg(date.getTime() - from.getTime());
   sele2.innerHTML = dateg(dur);
-  sele3.innerHTML = from.toISOString();
-  sele4.innerHTML = to.toISOString();
-  sele5.innerHTML = date.toISOString();
+  if (tzmode == 'Local') {
+    sele3.style.fontSize = '17px';
+    sele4.style.fontSize = '17px';
+    sele5.style.fontSize = '17px';
+    sele3.innerHTML = locd(from);
+    sele4.innerHTML = locd(to);
+    sele5.innerHTML = locd(date);
+  } else if (tzmode == 'UTC') {
+    sele3.style.fontSize = '20px';
+    sele4.style.fontSize = '20px';
+    sele5.style.fontSize = '20px';
+    sele3.innerHTML = from.toISOString();
+    sele4.innerHTML = to.toISOString();
+    sele5.innerHTML = date.toISOString();
+  }
   sele6.innerHTML = nr(tf1 * 180 - 90);
   sele7.innerHTML = nr(Math.tan((tfm * 180 - 90) / 360 * 3.1415926535 * 2));
   sele8.innerHTML = nr(Math.atanh(tfm * 2 - 1));
@@ -663,20 +699,24 @@ onloade = function() {
   bgcolor.value = localStorage.getItem('bgcolor2');
   fgcolor.value = localStorage.getItem('fgcolor2');
   offsetv.value = localStorage.getItem('offset2');
-  if (startval.value == '' || endval.value == '') {
+  tzmode = localStorage.getItem('tzmode2');
+  if (startval.value == null || endval.value == null) {
     Reset();
   } else {
     Setf();
   }
-  if (bgcolor.value == '' || fgcolor.value == '') {
+  if (bgcolor.value == null || fgcolor.value == null) {
     ResetCol();
   } else {
     SetCol();
   }
-  if (offsetv.value == '') {
+  if (offsetv.value == null) {
     ResetOffset();
   } else {
     SetOffset();
+  }
+  if (tzmode == null) {
+    tzmode = 'Local';
   }
 };
 onload = onloade;
@@ -685,6 +725,7 @@ onunload = function() {
   localStorage.setItem('endval2', endval.value);
   localStorage.setItem('bgcolor2', bgcolor.value);
   localStorage.setItem('fgcolor2', fgcolor.value);
-  localStorage.setItem('offset2', offsetv.value)
+  localStorage.setItem('offset2', offsetv.value);
+  localStorage.setItem('tzmode2', tzmode);
   return null;
 };
