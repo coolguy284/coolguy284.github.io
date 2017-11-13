@@ -700,17 +700,17 @@ onloade = function() {
   fgcolor.value = localStorage.getItem('fgcolor2');
   offsetv.value = localStorage.getItem('offset2');
   tzmode = localStorage.getItem('tzmode2');
-  if (startval.value == null || endval.value == null) {
+  if (startval.value == '' || endval.value == '') {
     Reset();
   } else {
     Setf();
   }
-  if (bgcolor.value == null || fgcolor.value == null) {
+  if (bgcolor.value == '' || fgcolor.value == '') {
     ResetCol();
   } else {
     SetCol();
   }
-  if (offsetv.value == null) {
+  if (offsetv.value == '') {
     ResetOffset();
   } else {
     SetOffset();
