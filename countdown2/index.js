@@ -715,7 +715,7 @@ onloade = function() {
   } else {
     SetOffset();
   }
-  if (tzmode == null) {
+  if (tzmode == 'null') {
     tzmode = 'Local';
   }
 };
