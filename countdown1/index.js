@@ -282,14 +282,14 @@ SetFGC = function() {
   console.log('Set Foreground To: ' + fgcolorp.value);
 };
 ResetBG = function() {
-  bgcol = color(0, 0, 0);
+  bgcol = PRI.color(0, 0, 0);
   bgcolor.value = hexv(bgcol);
   bgcolorp.value = bgcolor.value + '';
   simple.style.backgroundColor = bgcolor.value + '';
   console.log('Reset Background To: ' + bgcolor.value);
 };
 ResetFG = function() {
-  fgcol = color(0, 255, 0);
+  fgcol = PRI.color(0, 255, 0);
   fgcolor.value = hexv(fgcol);
   fgcolorp.value = fgcolor.value + '';
   simple.style.color = fgcolor.value + '';
@@ -305,8 +305,8 @@ SetCol = function() {
   console.log('Set Background To: ' + bgcolor.value + ', Foreground To: ' + fgcolor.value);
 };
 ResetCol = function() {
-  bgcol = color(0, 0, 0);
-  fgcol = color(0, 255, 0);
+  bgcol = PRI.color(0, 0, 0);
+  fgcol = PRI.color(0, 255, 0);
   bgcolor.value = hexv(bgcol);
   fgcolor.value = hexv(fgcol);
   bgcolorp.value = bgcolor.value + '';
