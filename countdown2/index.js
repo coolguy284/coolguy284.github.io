@@ -1,4 +1,4 @@
-var widthe, heighte, tzmode;
+var widthe, heighte, tzmode, infoview;
 var zf, zfm, zff, datearr, datestr, dateg, perc, nr, mr, hexu, hexv;
 var modf, modf2, modf3, modf4, modf5, modf6, locd;
 var SetStart, ResetStart, SetEnd, ResetEnd;
@@ -15,6 +15,7 @@ Math.atanh = Math.atanh || function(x) {
 widthe = 600;
 heighte = 400;
 tzmode = 'Local';
+infoview = false;
 {
 var SwitchTab = function(event, tabv) {
   var i, tabcontent, tablinks;
@@ -577,6 +578,11 @@ dur = to.getTime() - from.getTime();
 bgcol = color(0, 0, 0);
 fgcol = color(0, 255, 0);
 offset = 0;
+mousePressed = function() {
+  if (mouseX > 570 && mouseY > 10 && mouseX < 590 && mouseY < 30) {
+    infoview = !infoview;
+  }
+};
 draw = function() {
   try {
     drawe();
@@ -640,6 +646,22 @@ drawe = function() {
   fill(lerpColor(bgcol, fgcol, 0.06));
   textSize(15);
   text('Please press the button labled Button!', 10, 280);
+  fill(fgcol);
+  noStroke();
+  rect(570, 10, 20, 20);
+  fill(bgcol);
+  text('i', 579, 12);
+  if (infoview) {
+    fill(fgcol);
+    stroke(fgcol);
+    text('Complicated Stuff', 450, 80);
+    line(505, 100, 505, 115);
+    text('Complicated Stuff', 340, 230);
+    line(335, 235, 280, 230);
+    line(335, 239, 280, 250);
+    line(335, 243, 280, 270);
+    text('When the bottom bar resets, the top bar moves one pixel.', 220, 330);
+  }
 };
 //end processingjs
   }
@@ -702,6 +724,7 @@ onloade = function() {
   fgcolor.value = localStorage.getItem('fgcolor2');
   offsetv.value = localStorage.getItem('offset2');
   tzmode = localStorage.getItem('tzmode2');
+  infoview = localStorage.getItem('infoview2');
   if (startval.value == '' || endval.value == '') {
     Reset();
   } else {
@@ -717,8 +740,11 @@ onloade = function() {
   } else {
     SetOffset();
   }
-  if (tzmode == 'null' || tzmode == null) {
+  if (tzmode == 'null' || tzmode == null || tzmode == '') {
     tzmode = 'Local';
+  }
+  if (infoview == 'null' || infoview == null || infoview == '') {
+    infoview = false;
   }
 };
 onload = onloade;
@@ -729,5 +755,6 @@ onunload = function() {
   localStorage.setItem('fgcolor2', fgcolor.value);
   localStorage.setItem('offset2', offsetv.value);
   localStorage.setItem('tzmode2', tzmode);
+  localStorage.setItem('infoview2', infoview);
   return null;
 };
