@@ -745,6 +745,12 @@ onloade = function() {
   }
   if (infoview == 'null' || infoview == null || infoview == '') {
     infoview = false;
+  } else {
+    if (infoview == 'false') {
+      infoview = false
+    } else if (infoview == 'true') {
+      infoview = true
+    }
   }
 };
 onload = onloade;
