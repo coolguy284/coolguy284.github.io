@@ -1,0 +1,33 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>repl.it</title>
+    <link href="index.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+    <label for = 'cookies'>Cookies:</label>
+    <div id = 'cookies'>
+      <button onclick = 'RefListc()'>Refresh</button><br>
+      <select id = 'localvalc' onchange = 'UpdDatec()'></select><br>
+      <button onclick = 'GetC()'>Get</button>
+      <button onclick = 'SetC()'>Set</button>
+      <button onclick = 'DelC()'>Delete</button><br>
+      <input type = 'text' id = 'selvalc'><br>
+      <textarea type = 'text' style = 'width:50em;height:10em;' id = 'valbc'></textarea>
+    </div>
+    <label for = 'localstate'>Localstate:</label>
+    <div id = 'localstate'>
+      <button onclick = 'RefList()'>Refresh</button><br>
+      <select id = 'localval' onchange = 'UpdDate()'></select><br>
+      <button onclick = 'GetV()'>Get</button>
+      <button onclick = 'SetV()'>Set</button>
+      <button onclick = 'DelV()'>Delete</button><br>
+      <input type = 'text' id = 'selval'><br>
+      <textarea type = 'text' style = 'width:50em;height:10em;' id = 'valb'></textarea>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
+    <script src="index.js"></script>
+  </body>
+</html>
