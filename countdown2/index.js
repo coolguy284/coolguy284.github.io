@@ -1,4 +1,4 @@
-var widthe, heighte, tzmode, infoview;
+var widthe, heighte, tzmode, infoview, tab;
 var zf, zfm, zff, datearr, datestr, dateg, perc, nr, mr, hexu, hexv;
 var modf, modf2, modf3, modf4, modf5, modf6, locd;
 var SetStart, ResetStart, SetEnd, ResetEnd;
@@ -16,8 +16,10 @@ widthe = 600;
 heighte = 400;
 tzmode = 'Local';
 infoview = false;
+tab = 'canvas';
 {
 var SwitchTab = function(tabv) {
+  tab = tabv;
   var i, tabcontent, tablinks;
   tabcontent = document.getElementsByClassName("tabcontent");
   for (i = 0; i < tabcontent.length; i++) {
@@ -763,10 +765,6 @@ onunload = function() {
   localStorage.setItem('offset2', offsetv.value);
   localStorage.setItem('tzmode2', tzmode);
   localStorage.setItem('infoview2', infoview);
-  if (simple.hidden) {
-    localStorage.setItem('tab2', 'canvas');
-  } else {
-    localStorage.setItem('tab2', 'simple');
-  }
+  localStorage.setItem('tab2', tab);
   return null;
 };
