@@ -17,18 +17,13 @@ heighte = 400;
 tzmode = 'Local';
 infoview = false;
 {
-var SwitchTab = function(event, tabv) {
+var SwitchTab = function(tabv) {
   var i, tabcontent, tablinks;
   tabcontent = document.getElementsByClassName("tabcontent");
   for (i = 0; i < tabcontent.length; i++) {
-      tabcontent[i].style.display = "none";
-  }
-  tablinks = document.getElementsByClassName("tablinks");
-  for (i = 0; i < tablinks.length; i++) {
-      tablinks[i].className = tablinks[i].className.replace(" active", "");
+    tabcontent[i].style.display = "none";
   }
   document.getElementById(tabv).style.display = "block";
-  event.currentTarget.className += " active";
 };
 var Toggle = function() {
   if (togg.innerHTML == 'Collapse') {
@@ -752,6 +747,12 @@ onloade = function() {
       infoview = true
     }
   }
+  tv = localStorage.getItem('tab2')
+  if (tv == 'null' || tv == null || tv == '') {
+    SwitchTab('canvas')
+  } else {
+    SwitchTab(tv);
+  }
 };
 onload = onloade;
 onunload = function() {
@@ -762,5 +763,10 @@ onunload = function() {
   localStorage.setItem('offset2', offsetv.value);
   localStorage.setItem('tzmode2', tzmode);
   localStorage.setItem('infoview2', infoview);
+  if (simple.hidden) {
+    localStorage.setItem('tab2', 'canvas');
+  } else {
+    localStorage.setItem('tab2', 'simple');
+  }
   return null;
 };
