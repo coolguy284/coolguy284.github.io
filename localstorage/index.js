@@ -1,5 +1,5 @@
 function CheckPass() {
-  return sha256.hex(pass.value) == 'dd420abd011650ea90ee58431fb575dddcb4ac5a67d11c14b80081cfb8918d25';
+  return sha256.hex(pass.value) == '2850663b807a4763bad07f07272b2d8586654fcecb5346f136669832375806e8';
 }
 function RefList() {
   var lsi = Object.keys(localStorage);
