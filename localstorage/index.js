@@ -1,3 +1,6 @@
+function CheckPass() {
+  return sha256.hex(pass.value) == 'dd420abd011650ea90ee58431fb575dddcb4ac5a67d11c14b80081cfb8918d25';
+}
 function RefList() {
   var lsi = Object.keys(localStorage);
   var bv = '';
@@ -19,13 +22,17 @@ function GetV() {
   valb.value = localStorage.getItem(selval.value);
 }
 function SetV() {
-  localStorage.setItem(selval.value, valb.value);
-  RefList();
+  if (CheckPass()) {
+    localStorage.setItem(selval.value, valb.value);
+    RefList();
+  }
 }
 function DelV() {
-  localStorage.removeItem(selval.value);
-  RefList();
-  UpdDate();
+  if (CheckPass()) {
+    localStorage.removeItem(selval.value);
+    RefList();
+    UpdDate();
+  }
 }
 function RefListc() {
   var lsi = Object.keys(Cookies.get());
@@ -48,13 +55,17 @@ function GetC() {
   valbc.value = Cookies.get(selvalc.value)
 }
 function SetC() {
-  Cookies.set(selvalc.value, valbc.value, { expires: 365, path: '/'});
-  RefListc();
+  if (CheckPass()) {
+    Cookies.set(selvalc.value, valbc.value, { expires: 365, path: '/'});
+    RefListc();
+  }
 }
 function DelC() {
-  Cookies.remove(selvalc.value);
-  RefListc();
-  UpdDatec();
+  if (ChechPass()) {
+    Cookies.remove(selvalc.value);
+    RefListc();
+    UpdDatec();
+  }
 }
 RefList();
 UpdDate();
