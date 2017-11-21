@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
-    <title>repl.it</title>
+    <title>Localstorage Editor</title>
     <link href="index.css" rel="stylesheet" type="text/css" />
   </head>
   <body>
@@ -27,7 +27,10 @@
       <input type = 'text' id = 'selval'><br>
       <textarea type = 'text' style = 'width:50em;height:10em;' id = 'valb'></textarea>
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
-    <script src="index.js"></script>
+    <label for = 'pass'>Password:</label>
+    <input type = 'password' id = 'pass'>
+    <script src='https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js'></script>
+    <script src='sha256.js'></script>
+    <script src='index.js'></script>
   </body>
 </html>
