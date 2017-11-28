@@ -277,6 +277,8 @@ UpdDate = function() {
   dl = {
     'sf': new Date(date.getFullYear(), date.getMonth(), date.getDate(), 8, 0, 0, 0),
     'st': new Date(date.getFullYear(), date.getMonth(), date.getDate(), 14, 23, sd, (sd - Math.floor(sd)) * 1000),
+    'scf': new Date(date.getFullYear(), date.getMonth(), date.getDate(), 8, 0, 0, 0),
+    'sct': new Date(date.getFullYear(), date.getMonth(), date.getDate(), 14, 23, 0, 0),
     's1f': new Date(date.getFullYear(), date.getMonth(), date.getDate(), 8, 0, 0, 0),
     's1t': new Date(date.getFullYear(), date.getMonth(), date.getDate(), 9, 13, 0, 0),
     's3f': new Date(date.getFullYear(), date.getMonth(), date.getDate(), 9, 13, 0, 0),
@@ -315,6 +317,8 @@ UpdDate = function() {
 RevSelect = function() {
   if ((from.toISOString() == dl.sf.toISOString()) && (to.toISOString() == dl.st.toISOString())) {
     opts.value = 'school';
+  } else if ((from.toISOString() == dl.scf.toISOString()) && (to.toISOString() == dl.sct.toISOString())) {
+    opts.value = 'schoolc';
   } else if ((from.toISOString() == dl.s1f.toISOString()) && (to.toISOString() == dl.s1t.toISOString())) {
     opts.value = '1st';
   } else if ((from.toISOString() == dl.s3f.toISOString()) && (to.toISOString() == dl.s3t.toISOString())) {
@@ -378,6 +382,12 @@ UpdateSelect = function() {
       from = new Date(dl.sf);
       to = new Date(dl.st);
       console.log('Set Start To: ' + from.toISOString() + ', End To: ' + to.toISOString() + ' (School)');
+      break;
+    case 'schoolc':
+      from = new Date(dl.scf);
+      to = new Date(dl.sct);
+      console.log('Set Start To: ' + from.toISOString() + ', End To: ' + to.toISOString() + ' (Nonchanging School)');
+      break;
       break;
     case '1st':
       from = new Date(dl.s1f);
