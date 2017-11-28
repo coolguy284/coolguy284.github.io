@@ -4,32 +4,56 @@
     <title>Note Taker</title>
   </head>
   <body>
-    <option id = 'notes'></option>
-    <input type = 'text' id = 'notev'>
+    <button onclick = 'RefList();'>Refresh</button>
+    <select id = 'notes' onchange = 'Upd();'></select>
+    <input type = 'text' id = 'notev' style = 'width:20em;'>
+    <button onclick = 'Load();'>Reload</button>
     <button onclick = 'Save();'>Save changes</button>
+    <button onclick = 'Clear();'>Remove</button>
     <textarea id = 'ta' style = 'width:100%;height:90%'></textarea>
     <script>
       function RefList() {
         var lsi = Object.keys(localStorage);
         var bv = '';
-        var lsv = localval.value;
+        var lsv = notes.value;
         for (var i in lsi) {
-          if (lsi[i][0] = '#-') {
-          if (lsi[i].substring(2, lsi.length) == lsv) {
-            bv += '<option value = ' + lsi[i].substring(2, lsi.length) + ' selected>' + lsi[i].substring(2, lsi.length) + '</option>';
-          } else {
-            bv += '<option value = ' + lsi[i].substring(2, lsi.length) + '>' + lsi[i].substring(2, lsi.length) + '</option>';
-          }
+          if (lsi[i].substring(0, 5) == 'note-') {
+            if (lsi[i].substring(5, lsi[i].length) == lsv) {
+              bv += '<option value = \'' + lsi[i].substring(5, lsi[i].length) + '\' selected>' + lsi[i].substring(5, lsi[i].length) + '</option>';
+            } else {
+              bv += '<option value = \'' + lsi[i].substring(5, lsi[i].length) + '\'>' + lsi[i].substring(5, lsi[i].length) + '</option>';
+            }
           }
         }
-        localval.innerHTML = bv;
+        notes.innerHTML = bv;
+        Upd();
+      }
+      function Upd() {
+        notev.value = notes.value;
+        Load();
       }
       function Save() {
-        localStorage.setItem('#' + notev.value, ta.value);
+        localStorage.setItem('note-' + notev.value, ta.value);
+        RefList();
       }
       function Load() {
-        ta.value = localStorage.getItem('#' + notev.value);
+        ta.value = localStorage.getItem('note-' + notev.value);
       }
+      function Clear() {
+        localStorage.removeItem('note-' + notev.value);
+        RefList();
+      }
+      ta.addEventListener('keydown', function(e) {
+        if ((e.key == 's' || e.key == 'S' ) && (e.ctrlKey || e.metaKey))
+        {
+            e.preventDefault();
+            Save();
+            return false;
+        }
+        return true;
+      }); 
+      RefList();
+      Upd();
     </script>
   </body>
 </html>
