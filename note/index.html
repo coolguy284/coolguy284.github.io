@@ -46,8 +46,8 @@
       ta.addEventListener('keydown', function(e) {
         if ((e.key == 's' || e.key == 'S' ) && (e.ctrlKey || e.metaKey))
         {
-            e.preventDefault();
             Save();
+            e.preventDefault();
             return false;
         }
         return true;
