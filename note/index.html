@@ -5,11 +5,30 @@
   </head>
   <body>
     <option id = 'notes'></option>
+    <input type = 'text' id = 'notev'>
     <button onclick = 'Save();'>Save changes</button>
     <textarea id = 'ta' style = 'width:100%;height:90%'></textarea>
     <script>
+      function RefList() {
+        var lsi = Object.keys(localStorage);
+        var bv = '';
+        var lsv = localval.value;
+        for (var i in lsi) {
+          if (lsi[i][0] = '#-') {
+          if (lsi[i].substring(2, lsi.length) == lsv) {
+            bv += '<option value = ' + lsi[i].substring(2, lsi.length) + ' selected>' + lsi[i].substring(2, lsi.length) + '</option>';
+          } else {
+            bv += '<option value = ' + lsi[i].substring(2, lsi.length) + '>' + lsi[i].substring(2, lsi.length) + '</option>';
+          }
+          }
+        }
+        localval.innerHTML = bv;
+      }
       function Save() {
-        localStorage.setItem(, ta.value)
+        localStorage.setItem('#' + notev.value, ta.value);
+      }
+      function Load() {
+        ta.value = localStorage.getItem('#' + notev.value);
       }
     </script>
   </body>
