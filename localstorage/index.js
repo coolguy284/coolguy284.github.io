@@ -10,9 +10,9 @@ function RefList() {
   var lsv = localval.value;
   for (var i in lsi) {
     if (lsi[i] == lsv) {
-      bv += '<option value = ' + lsi[i] + ' selected>' + lsi[i] + '</option>';
+      bv += '<option value = \'' + lsi[i] + '\' selected>' + lsi[i] + '</option>';
     } else {
-      bv += '<option value = ' + lsi[i] + '>' + lsi[i] + '</option>';
+      bv += '<option value = \'' + lsi[i] + '\'>' + lsi[i] + '</option>';
     }
   }
   localval.innerHTML = bv;
@@ -41,9 +41,9 @@ function RefListc() {
   var lsv = localvalc.value;
   for (var i in lsi) {
     if (lsi[i] == lsv) {
-      bv += '<option value = ' + lsi[i] + ' selected>' + lsi[i] + '</option>';
+      bv += '<option value = \'' + lsi[i] + '\' selected>' + lsi[i] + '</option>';
     } else {
-      bv += '<option value = ' + lsi[i] + '>' + lsi[i] + '</option>';
+      bv += '<option value = \'' + lsi[i] + '\'>' + lsi[i] + '</option>';
     }
   }
   localvalc.innerHTML = bv;
