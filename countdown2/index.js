@@ -666,8 +666,6 @@ drawe = function() {
 var canvas = document.getElementById('mycanvas'); 
 var processingInstance = new Processing(canvas, sketchProc);
 PRI = processingInstance;
-bgcolorp.addEventListener('change', SetBGC, false);
-fgcolorp.addEventListener('change', SetFGC, false);
 simplede = function() {
   date = new Date();
   tl = to.getTime() - date.getTime();
@@ -713,7 +711,6 @@ simpled = function() {
     simplede();
   } catch (e) {}
 };
-setInterval(simpled, 0);
 onloade = function() {
   startval.value = localStorage.getItem('startval2');
   endval.value = localStorage.getItem('endval2');
@@ -768,3 +765,26 @@ onunload = function() {
   localStorage.setItem('tab2', tab);
   return null;
 };
+startval.addEventListener("keydown", function (e) {
+  if (e.keyCode === 13) {
+    Setf();
+  }
+});
+endval.addEventListener("keydown", function (e) {
+  if (e.keyCode === 13) {
+    Setf();
+  }
+});
+bgcolor.addEventListener("keydown", function (e) {
+  if (e.keyCode === 13) {
+    SetCol();
+  }
+});
+fgcolor.addEventListener("keydown", function (e) {
+  if (e.keyCode === 13) {
+    SetCol();
+  }
+});
+bgcolorp.addEventListener('change', SetBGC, false);
+fgcolorp.addEventListener('change', SetFGC, false);
+setInterval(simpled, 0);
