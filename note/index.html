@@ -1,0 +1,16 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Note Taker</title>
+  </head>
+  <body>
+    <option id = 'notes'></option>
+    <button onclick = 'Save();'>Save changes</button>
+    <textarea id = 'ta' style = 'width:100%;height:90%'></textarea>
+    <script>
+      function Save() {
+        localStorage.setItem(, ta.value)
+      }
+    </script>
+  </body>
+</html>
