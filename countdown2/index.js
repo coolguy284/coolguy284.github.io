@@ -765,22 +765,22 @@ onunload = function() {
   localStorage.setItem('tab2', tab);
   return null;
 };
-startval.addEventListener("keydown", function (e) {
+startval.addEventListener('keydown', function (e) {
   if (e.keyCode === 13) {
     Setf();
   }
 });
-endval.addEventListener("keydown", function (e) {
+endval.addEventListener('keydown', function (e) {
   if (e.keyCode === 13) {
     Setf();
   }
 });
-bgcolor.addEventListener("keydown", function (e) {
+bgcolor.addEventListener('keydown', function (e) {
   if (e.keyCode === 13) {
     SetCol();
   }
 });
-fgcolor.addEventListener("keydown", function (e) {
+fgcolor.addEventListener('keydown', function (e) {
   if (e.keyCode === 13) {
     SetCol();
   }
