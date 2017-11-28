@@ -427,8 +427,6 @@ delete dur;*/
 var canvas = document.getElementById('mycanvas'); 
 var processingInstance = new Processing(canvas, sketchProc);
 PRI = processingInstance;
-bgcolorp.addEventListener('change', SetBGC, false);
-fgcolorp.addEventListener('change', SetFGC, false);
 simplede = function() {
   ct = ctime();
   tf = f(1 - ((to - ctime()) / (to - from)));
@@ -438,26 +436,14 @@ simplede = function() {
   tf2 = (tf * width - Math.floor(tf * width));
   head1.innerHTML = unconv(to - ct)[1];
   head2.innerHTML = r(1 - ((to - ctime()) / (to - from)))
-  sele1.innerHTML = dateg(date.getTime() - from.getTime());
-  sele2.innerHTML = dateg(dur);
-  if (tzmode == 'Local') {
-    sele3.style.fontSize = '17px';
-    sele4.style.fontSize = '17px';
-    sele5.style.fontSize = '17px';
-    sele3.innerHTML = locd(from);
-    sele4.innerHTML = locd(to);
-    sele5.innerHTML = locd(date);
-  } else if (tzmode == 'UTC') {
-    sele3.style.fontSize = '20px';
-    sele4.style.fontSize = '20px';
-    sele5.style.fontSize = '20px';
-    sele3.innerHTML = from.toISOString();
-    sele4.innerHTML = to.toISOString();
-    sele5.innerHTML = date.toISOString();
-  }
-  sele6.innerHTML = nr(tf1 * 180 - 90);
-  sele7.innerHTML = nr(Math.tan((tfm * 180 - 90) / 360 * 3.1415926535 * 2));
-  sele8.innerHTML = nr(Math.atanh(tfm * 2 - 1));
+  //sele1.innerHTML = dateg(date.getTime() - from.getTime());
+  //sele2.innerHTML = dateg(dur);
+  //sele3.innerHTML = from.toISOString();
+  //sele4.innerHTML = to.toISOString();
+  //sele5.innerHTML = date.toISOString();
+  //sele6.innerHTML = nr(tf1 * 180 - 90);
+  //sele7.innerHTML = nr(Math.tan((tfm * 180 - 90) / 360 * 3.1415926535 * 2));
+  //sele8.innerHTML = nr(Math.atanh(tfm * 2 - 1));
   logaa.innerHTML = 'Logarithm:<br>' + modf(ntf) + '<br>' + modf2(ntf) + '<br>' + modf3(ntf) + '<br>' + modf4(ntf) + '<br>' + modf5(ntf) + '<br>' + modf6(ntf);
   perc1.innerHTML = perc(tf);
   perc1a.innerHTML = zfm(Math.floor(tf * widthe)) + '/' + widthe;
@@ -472,7 +458,6 @@ simpled = function() {
     simplede();
   } catch (e) {}
 };
-setInterval(simpled, 0);
 onloade = function() {
   startval.value = localStorage.getItem('startval1');
   endval.value = localStorage.getItem('endval1');
@@ -503,3 +488,26 @@ onunload = function() {
   localStorage.setItem('offset2', offsetv.value)
   return null;
 };
+startval.addEventListener('keydown', function (e) {
+  if (e.keyCode === 13) {
+    Setf();
+  }
+});
+endval.addEventListener('keydown', function (e) {
+  if (e.keyCode === 13) {
+    Setf();
+  }
+});
+bgcolor.addEventListener('keydown', function (e) {
+  if (e.keyCode === 13) {
+    SetCol();
+  }
+});
+fgcolor.addEventListener('keydown', function (e) {
+  if (e.keyCode === 13) {
+    SetCol();
+  }
+});
+bgcolorp.addEventListener('change', SetBGC, false);
+fgcolorp.addEventListener('change', SetFGC, false);
+setInterval(simpled, 0);
