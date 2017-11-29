@@ -823,6 +823,11 @@ endval.addEventListener('keydown', function (e) {
     Setf();
   }
 });
+offsetv.addEventListener('keydown', function (e) {
+  if (e.keyCode === 13) {
+    SetOffset();
+  }
+});
 bgcolor.addEventListener('keydown', function (e) {
   if (e.keyCode === 13) {
     SetCol();
