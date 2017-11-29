@@ -1,4 +1,5 @@
 var widthe, heighte, tzmode, infoview, tab;
+var htmlcode, htmlcodel, jscode, jscodel, csscode, csscodel;
 var zf, zfm, zff, datearr, datestr, dateg, perc, nr, mr, hexu, hexv;
 var modf, modf2, modf3, modf4, modf5, modf6, locd;
 var SetStart, ResetStart, SetEnd, ResetEnd;
@@ -17,6 +18,12 @@ heighte = 400;
 tzmode = 'Local';
 infoview = false;
 tab = 'canvas';
+htmlcode = '';
+htmlcodel = 0;
+jscode = '';
+jscodel = 0;
+csscode = '';
+csscodel = 0;
 {
 var SwitchTab = function(tabv) {
   tab = tabv;
@@ -47,6 +54,30 @@ var SwitchTZ = function() {
     tzswitch.innerHTML = 'Local';
   }
 };
+var Ongethtml = function () {
+  htmlcode = this.responseText;
+  htmlcodel = htmlcode.split(/\r\n|\r|\n/).length - 1;
+};
+var Ongetjs = function () {
+  jscode = this.responseText;
+  jscodel = jscode.split(/\r\n|\r|\n/).length - 1;
+};
+var Ongetcss = function () {
+  csscode = this.responseText;
+  csscodel = csscode.split(/\r\n|\r|\n/).length - 1;
+};
+var htmlreq = new XMLHttpRequest();
+htmlreq.addEventListener('load', Ongethtml);
+htmlreq.open('GET', 'https://coolguy284.github.io/countdown2/index.html');
+htmlreq.send();
+var jsreq = new XMLHttpRequest();
+jsreq.addEventListener('load', Ongetjs);
+jsreq.open('GET', 'https://coolguy284.github.io/countdown2/index.js');
+jsreq.send();
+var cssreq = new XMLHttpRequest();
+cssreq.addEventListener('load', Ongetcss);
+cssreq.open('GET', 'https://coolguy284.github.io/countdown2/index.css');
+cssreq.send();
 }
 {
 zf = function(val) {
@@ -668,6 +699,13 @@ drawe = function() {
     line(335, 239, 280, 250);
     line(335, 243, 280, 270);
     text('When the bottom bar resets, the top bar moves one pixel.', 220, 330);
+    textSize(12);
+    text(htmlcodel + ' Lines of Code (HTML)', 0, 0);
+    text(jscodel + ' Lines of Code (JS)', 0, 13);
+    text(csscodel + ' Lines of Code (CSS)', 0, 26);
+    text(htmlcode.length + ' Characters (HTML)', 0, 39);
+    text(jscode.length + ' Characters (JS)', 0, 52);
+    text(csscode.length + ' Characters (CSS)', 0, 65);
   }
 };
 //end processingjs
