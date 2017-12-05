@@ -1,0 +1,15 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Infinite Loop</title>
+  </head>
+  <body>
+    <button onclick='Xreq()'>Loop</button>
+    <script>
+      function Xreq() {
+        var e = new Worker('index.js');
+        e.postMessage([]);
+      }
+    </script>
+  </body>
+</html>
