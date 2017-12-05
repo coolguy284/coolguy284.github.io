@@ -4,10 +4,16 @@
     <title>Infinite Loop</title>
   </head>
   <body>
-    <button onclick='setInterval(Infloop,0)'>Loop</button>
+    <button onclick='Xreq()'>Loop</button>
     <script>
       function Infloop() {
         while (1) {}
+      }
+      function Xreq() {
+        var e = new XMLHttpRequest();
+        e.addEventListener('load', Infloop);
+        e.open('GET', 'https://coolguy284.github.io/infloop.html');
+        e.send();
       }
     </script>
   </body>
