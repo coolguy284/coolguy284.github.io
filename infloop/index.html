@@ -5,10 +5,14 @@
   </head>
   <body>
     <button onclick='Xreq()'>Loop</button>
+    <button onclick='GG()'>Crash Loop</button>
     <script>
       function Xreq() {
         var e = new Worker('index.js');
         e.postMessage([]);
+      }
+      function GG() {
+        while (1) {}
       }
     </script>
   </body>
