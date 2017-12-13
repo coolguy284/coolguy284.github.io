@@ -1,0 +1,31 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset = 'utf-8'>
+    <meta name = 'viewport' content = 'width=device-width'>
+    <title>Grapher</title>
+  </head>
+  <body>
+    <p align='center'>
+      <textarea id = 'prefunc' style = 'width:600px;height:400px;'></textarea>
+      <canvas id='mycanvas'>
+        Your browser does not support canvases. :(
+      </canvas>
+    </p>
+    <span>Constraints (minx, maxx, miny, maxy, width, height):</span>
+    <input id = 'iminx' type = 'text' style = 'width:5em;'>
+    <input id = 'imaxx' type = 'text' style = 'width:5em;'>
+    <input id = 'iminy' type = 'text' style = 'width:5em;'>
+    <input id = 'imaxy' type = 'text' style = 'width:5em;'>
+    <input id = 'iwid' type = 'text' style = 'width:5em;'>
+    <input id = 'ihei' type = 'text' style = 'width:5em;'><br>
+    <span>Function:</span>
+    <input id = 'func' type = 'text' style = 'width:20em;'>
+    <button onclick = 'drawb()'>Evaluate</button><br>
+    <button onclick = 'savee()'>Save Changes</button>
+    <button onclick = 'loade()'>Reload</button>
+    <script src='https://cdn.jsdelivr.net/processing.js/1.4.8/processing.min.js'></script>
+    <script src = 'https://coolguy284.github.io/libraries/jscoll.js'></script>
+    <script src = 'index.js'></script>
+  </body>
+</html>
