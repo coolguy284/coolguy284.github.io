@@ -1,9 +1,10 @@
-var drawb, minx, maxx, miny, maxy, savee, loade;
+var drawb, minx, maxx, miny, maxy, gridd, savee, loade;
 savee = function() {
   localStorage.setItem('gminx', minx);
   localStorage.setItem('gmaxx', maxx);
   localStorage.setItem('gminy', miny);
   localStorage.setItem('gmaxy', maxy);
+  localStorage.setItem('ggridd', JSON.stringify(gridd));
   localStorage.setItem('gwid', PRI.width);
   localStorage.setItem('ghei', PRI.height);
   localStorage.setItem('gfunc', func.value);
@@ -15,6 +16,7 @@ loade = function() {
   maxx = parseFloat(localStorage.getItem('gmaxx'));
   miny = parseFloat(localStorage.getItem('gminy'));
   maxy = parseFloat(localStorage.getItem('gmaxy'));
+  gridd = JSON.parse(localStorage.getItem('ggridd'));
   wid = parseFloat(localStorage.getItem('gwid'));
   hei = parseFloat(localStorage.getItem('ghei'));
   func.value = localStorage.getItem('gfunc');
@@ -30,6 +32,9 @@ loade = function() {
   }
   if (!maxy) {
     maxy = 100;
+  }
+  if (!gridd && gridd !== false) {
+    gridd = true;
   }
   if (!wid) {
     wid = 600;
@@ -47,6 +52,7 @@ loade = function() {
   imaxx.value = maxx;
   iminy.value = miny;
   imaxy.value = maxy;
+  igrid.checked = gridd;
   iwid.value = wid;
   ihei.value = hei;
   PRI.size(wid, hei, PRI.P2D);
@@ -63,8 +69,17 @@ drawb = function() {
     maxx = parseFloat(imaxx.value);
     miny = parseFloat(iminy.value);
     maxy = parseFloat(imaxy.value);
+    gridd = igrid.checked;
     eval(prefunc.value);
-    for (var i = 0; i < width; i++) {
+    var i;
+    if (gridd) {
+      strokeWeight(3);
+      for (i = 0; i <= width; i += 50) {
+        line(i, 0, i, height);
+      }
+    }
+    strokeWeight(2);
+    for (i = 0; i < width; i++) {
       var x = map(i, 0, width, minx, maxx);
       point(i, height - map(eval(func.value), miny, maxy, 1, height - 1));
     }
