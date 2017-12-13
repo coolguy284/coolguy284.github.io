@@ -23,7 +23,9 @@
     <input id = 'ihei' type = 'text' style = 'width:5em;'><br>
     <span>Function:</span>
     <input id = 'func' type = 'text' style = 'width:20em;'>
-    <button onclick = 'drawb()'>Evaluate</button><br>
+    <button onclick = 'drawb()'>Evaluate</button>
+    <input id = 'igrid' type = 'checkbox' onchange = 'drawb()'>
+    <label for = 'igrid'>Draw Grid</label><br>
     <button onclick = 'savee()'>Save Changes</button>
     <button onclick = 'loade()'>Reload</button>
     <script src='https://cdn.jsdelivr.net/processing.js/1.4.8/processing.min.js'></script>
