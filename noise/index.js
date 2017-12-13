@@ -303,6 +303,11 @@ var sketchProc = function(processingInstance) {
 size(800, 800, P2D);
 background(0);
 var val = 0;
+keyPressed = function() {
+  if (keyCode == 10) {
+    while (1) {}
+  }
+}
 draw = function() {
   if (val < 400) {
     for (var i = 0; i < 400; i ++) {
