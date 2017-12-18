@@ -767,6 +767,7 @@ onloade = function() {
   offsetv.value = localStorage.getItem('offset2');
   tzmode = localStorage.getItem('tzmode2');
   infoview = localStorage.getItem('infoview2');
+  togg.innerHTML = localStorage.getItem('coll2');
   if (startval.value == '' || endval.value == '') {
     Reset();
   } else {
@@ -800,6 +801,15 @@ onloade = function() {
   } else {
     SwitchTab(tv);
   }
+  if (togg.innerHTML == 'Expand' || togg.innerHTML == 'null' || togg.innerHTML == null || togg.innerHTML == '') {
+    coll1.style = 'display:none';
+    coll2.style = 'display:none';
+    togg.innerHTML = 'Expand';
+  } else {
+    coll1.style = '';
+    coll2.style = '';
+    togg.innerHTML = 'Collapse';
+  }
 };
 onload = onloade;
 onunload = function() {
@@ -811,6 +821,7 @@ onunload = function() {
   localStorage.setItem('tzmode2', tzmode);
   localStorage.setItem('infoview2', infoview);
   localStorage.setItem('tab2', tab);
+  localStorage.setItem('coll2', togg.innerHTML);
   return null;
 };
 startval.addEventListener('keydown', function (e) {
