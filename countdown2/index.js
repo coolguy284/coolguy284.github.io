@@ -767,6 +767,7 @@ onloade = function() {
   offsetv.value = localStorage.getItem('offset2');
   tzmode = localStorage.getItem('tzmode2');
   infoview = localStorage.getItem('infoview2');
+  tv = localStorage.getItem('tab2');
   togg.innerHTML = localStorage.getItem('coll2');
   if (startval.value == '' || endval.value == '') {
     Reset();
@@ -795,13 +796,12 @@ onloade = function() {
       infoview = true
     }
   }
-  tv = localStorage.getItem('tab2')
   if (tv == 'null' || tv == null || tv == '') {
     SwitchTab('canvas')
   } else {
     SwitchTab(tv);
   }
-  if (togg.innerHTML == 'Expand' || togg.innerHTML == 'null' || togg.innerHTML == null || togg.innerHTML == '') {
+  if (togg.innerHTML == 'Expand') {
     coll1.style = 'display:none';
     coll2.style = 'display:none';
     togg.innerHTML = 'Expand';
