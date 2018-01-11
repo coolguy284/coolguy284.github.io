@@ -470,6 +470,10 @@ UpdateSelect = function() {
   endval.value = to.toISOString();
   dur = to - from;
 };
+var hr = window.location.href;
+if (hr.substr(0, 28) != 'https://coolguy284.github.io' && hr.substr(0, 35) != 'https://replit.org/data/web_project') {
+  idd.innerHTML = '';
+}
 SetBG = function() {
   bgcol = hexu(bgcolor.value);
   bgcolorp.value = bgcolor.value + '';
