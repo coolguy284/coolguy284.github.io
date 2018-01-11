@@ -45,3 +45,4 @@ UpdDate = function() {
     'net':new Date('2024-04-08T17:59:17.000Z')
   };
 };
+console.log(window.location.href);
