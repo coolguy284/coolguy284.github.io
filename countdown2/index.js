@@ -472,7 +472,7 @@ UpdateSelect = function() {
 };
 var hr = window.location.href;
 if (hr.substr(0, 28) != 'https://coolguy284.github.io' && hr.substr(0, 35) != 'https://replit.org/data/web_project') {
-  document.write('Not Legit');
+  document.write('This Code Is Not Legit');
 }
 SetBG = function() {
   bgcol = hexu(bgcolor.value);
