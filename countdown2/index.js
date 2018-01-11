@@ -672,9 +672,9 @@ drawe = function() {
   if (tf1 >= 0) {
       rect(0, 300, floor(tf1 * width), 30);
   } else {
-      rect(width-floor(-tf1 * width), 300, floor(-tf1 * width), 30);
+      rect(width-floor(-tf1 * width)-1, 300, floor(-tf1 * width)+1, 30);
   }
-  rect(0, 350, tf2 * width, 30);
+  rect(0, 350, floor(tf2 * width), 30);
   textSize(20);
   text(perc(tf1), 0, 327);
   text(perc(tf2), 0, 377);
