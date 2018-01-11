@@ -9,7 +9,7 @@ var SetCol, ResetCol, SetOffset, ResetOffset;
 var Stop, Freeze, Mystery, Button;
 var PRI, simplede, simpled;
 var date, dl, from, to, dur;
-var bgcol, fgcol, offset, tl, tf, ntf, tf2;
+var bgcol, fgcol, offset, tl, tf, tf1, tfm, ntf, tf2;
 Math.atanh = Math.atanh || function(x) {
   return Math.log((1+x)/(1-x)) / 2;
 };
@@ -750,8 +750,8 @@ simplede = function() {
   perc2.innerHTML = perc(tf2);
   perc2a.innerHTML = zfm(Math.floor(tf2 * widthe)) + '/' + widthe;
   perc2b.innerHTML = zff(Math.floor(tf * widthe) * widthe + Math.floor(tf2 * widthe)) + '/' + (widthe * widthe);
-  prog1.value = tf1;
-  prog2.value = tf2;
+  prog1.value = Math.floor(tf1 * widthe) / widthe;
+  prog2.value = Math.floor(tf2 * widthe) / widthe;
   UpdDate();
 };
 simpled = function() {
