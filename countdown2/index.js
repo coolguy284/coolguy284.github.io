@@ -472,7 +472,7 @@ UpdateSelect = function() {
 };
 var hr = window.location.href;
 if (hr.substr(0, 28) != 'https://coolguy284.github.io' && hr.substr(0, 35) != 'https://replit.org/data/web_project') {
-  document.write('This Code Is Not Legit');
+  document.write('<br>This code is not legit.  It\'s original source was <a href=\'https://coolguy284.github.io/countdown2/index.html\'>https://coolguy284.github.io/countdown2/index.html</a>');
 }
 SetBG = function() {
   bgcol = hexu(bgcolor.value);
