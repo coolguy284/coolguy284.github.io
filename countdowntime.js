@@ -44,8 +44,8 @@ UpdDate = function() {
     'mlt': new Date(Math.ceil(date.getFullYear() / 1000) * 1000, 0, 1, 0, 0, 0, 0),
     'net':new Date('2024-04-08T17:59:17.000Z')
   };
-};
+};/*
 var hr = window.location.href;
 if (hr.substr(0, 28) != 'https://coolguy284.github.io' && hr.substr(0, 35) != 'https://replit.org/data/web_project') {
   document.write('<br>This code is not legit.  It\'s original source was <a href=\'https://coolguy284.github.io\'>https://coolguy284.github.io</a>');
-}
+}*/
