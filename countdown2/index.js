@@ -472,15 +472,15 @@ drawe = function() {
   tf1 = (1 - (tl / dur)) % 1;
   tfm = tf - floor(tf);
   ntf = 1 - (tl / dur);
-  tf2 = (tf * width - floor(tf * width));
+  tf2 = (tf * widthe - floor(tf * widthe));
   background(bgcol);
   fill(fgcol);
   noStroke();
   textAlign(CENTER, CENTER);
   textSize(40);
-  text('Time Left:', width / 2, 20);
-  text(dateg(tl), width / 2, 60);
-  text(perc(tf), width / 2, 100);
+  text('Time Left:', widthe / 2, 20);
+  text(dateg(tl), widthe / 2, 60);
+  text(perc(tf), widthe / 2, 100);
   textAlign(LEFT, TOP);
   textSize(20);
   text('Time Passed:', 10, 120);
@@ -509,17 +509,17 @@ drawe = function() {
   text(nr(Math.atanh(tfm * 2 - 1)), 140, 260);
   text('Logarithm:\n' + modf(ntf) + '\n' + modf2(ntf) + '\n' + modf3(ntf) + '\n' + modf4(ntf) + '\n' + modf5(ntf) + '\n' + modf6(ntf), 480, 120);
   if (tf1 >= 0) {
-      rect(0, 300, floor(tf1 * width), 30);
+      rect(0, 300, floor(tf1 * widthe), 30);
   } else {
-      rect(width-floor(-tf1 * width)-1, 300, floor(-tf1 * width)+1, 30);
+      rect(widthe-floor(-tf1 * widthe)-1, 300, floor(-tf1 * widthe)+1, 30);
   }
-  rect(0, 350, floor(tf2 * width), 30);
+  rect(0, 350, floor(tf2 * widthe), 30);
   textSize(20);
   text(perc(tf1), 0, 327);
   text(perc(tf2), 0, 377);
-  text(zfm(floor(tf1 * width)) + '/' + width, 120, 327);
-  text(zfm(floor(tf2 * width)) + '/' + width, 120, 377);
-  text(zff(floor(tf1 * width) * width + floor(tf2 * width)) + '/' + sq(width), 220, 377);
+  text(zfm(floor(tf1 * widthe)) + '/' + widthe, 120, 327);
+  text(zfm(floor(tf2 * widthe)) + '/' + widthe, 120, 377);
+  text(zff(floor(tf1 * widthe) * widthe + floor(tf2 * widthe)) + '/' + sq(widthe), 220, 377);
   fill(lerpColor(bgcol, fgcol, 0.06));
   textSize(15);
   text('Please press the button labled Button!', 10, 280);
