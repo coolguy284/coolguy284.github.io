@@ -1,4 +1,4 @@
-var id, cd, dif, sd;
+var date, id, cd, dif, sd, UpdDate, hnl;
 date = new Date();
 id = new Date(2017, 11, 7, 0, 0, 0);
 cd = new Date(date.getFullYear(), date.getMonth()+1, date.getDate(), 0, 0, 0);
@@ -44,7 +44,29 @@ UpdDate = function() {
     'mlt': new Date(Math.ceil(date.getFullYear() / 1000) * 1000, 0, 1, 0, 0, 0, 0),
     'net':new Date('2024-04-08T17:59:17.000Z')
   };
-};/*
+};
+hnl = {
+  s: 'School',
+  sc: 'Nonchanging School',
+  s1: '1st Block',
+  s3: '2nd Block Part 1',
+  s4: 'Related Arts',
+  s5: 'Lunch',
+  s6: '2nd Block Part 2',
+  s7: 'Flex',
+  s8: '3rd Block',
+  mu: 'Minute',
+  h: 'Hour',
+  d: 'Day',
+  w: 'Week',
+  m: 'Month',
+  y: 'Year',
+  de: 'Decade',
+  c: 'Century',
+  ml: 'Millennium',
+  ne: 'Next Eclipse'
+}
+/*
 var hr = window.location.href;
 if (hr.substr(0, 28) != 'https://coolguy284.github.io' && hr.substr(0, 35) != 'https://replit.org/data/web_project') {
   document.write('<br>This code is not legit.  It has been rehosted.  It\'s original source was <a href=\'https://coolguy284.github.io\'>https://coolguy284.github.io</a>');
