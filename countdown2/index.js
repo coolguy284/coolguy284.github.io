@@ -3,7 +3,7 @@ var htmlcode, htmlcodel, jscode, jscodel, csscode, csscodel;
 var zf, zfm, zff, datearr, datestr, dateg, perc, nr, mr, hexu, hexv;
 var modf, modf2, modf3, modf4, modf5, modf6, locd;
 var SetStart, ResetStart, SetEnd, ResetEnd;
-var Setf, Reset, Current, UpdDate, RevSelect, UpdateSelect;
+var Setf, Reset, Current, RevSelect, UpdateSelect;
 var SetBG, SetFG, SetBGC, SetFGC, ResetBG, ResetFG;
 var SetCol, ResetCol, SetOffset, ResetOffset;
 var Stop, Freeze, Mystery, Button;
@@ -343,7 +343,7 @@ UpdateSelect = function() {
     default:
       from = new Date(dl[opts.value + 'f']);
       to = new Date(dl[opts.value + 't']);
-      console.log('Set Start To: ' + from.toISOString() + ', End To: ' + to.toISOString() + ' (Millenium)');
+      console.log('Set Start To: ' + from.toISOString() + ', End To: ' + to.toISOString() + ' (' + hnl[opts.value] + ')');
       break;
   };
   startval.value = from.toISOString();
