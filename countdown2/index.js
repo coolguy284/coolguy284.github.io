@@ -330,7 +330,7 @@ RevSelect = function() {
       opts.value = 'custom';
     }
   }
-  console.log('Set opts to: ' + opts.value);
+  console.log('Set opts to: ' + opts.value + ' (' + hnl[opts.value] + ')');
 };
 UpdateSelect = function() {
   switch (opts.value) {
