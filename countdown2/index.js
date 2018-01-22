@@ -690,4 +690,4 @@ fgcolor.addEventListener('keydown', function (e) {
 });
 bgcolorp.addEventListener('change', SetBGC, false);
 fgcolorp.addEventListener('change', SetFGC, false);
-setInterval(simpled, 0);
+setInterval(simpled, 15);
