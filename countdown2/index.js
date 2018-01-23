@@ -1,4 +1,4 @@
-var widthe, heighte, drawe, tzmode, infoview, tab;
+var widthe, heighte, drawe, tzmode, infoview, tab, loaded;
 var htmlcode, htmlcodel, jscode, jscodel, csscode, csscodel;
 var zf, zfm, zff, datearr, datestr, dateg, perc, nr, mr, hexu, hexv;
 var modf, modf2, modf3, modf4, modf5, modf6, locd;
@@ -18,6 +18,7 @@ heighte = 400;
 tzmode = 'Local';
 infoview = false;
 tab = 'canvas';
+loaded = false;
 htmlcode = '';
 htmlcodel = 0;
 jscode = '';
@@ -253,6 +254,7 @@ SetStart = function() {
     startval.value = from.toISOString();
   }
   dur = to.getTime() - from.getTime();
+  startval.value = from.toISOString();
   if (val === undefined) {
     RevSelect();
   }
@@ -273,6 +275,7 @@ SetEnd = function() {
     endval.value = from.toISOString();
   }
   dur = to.getTime() - from.getTime();
+  endval.value = to.toISOString();
   if (val === undefined) {
     RevSelect();
   }
@@ -289,6 +292,8 @@ Setf = function(val) {
   from = new Date(startval.value);
   to = new Date(endval.value);
   dur = to.getTime() - from.getTime();
+  startval.value = from.toISOString();
+  endval.value = to.toISOString();
   if (val === undefined) {
     RevSelect();
   }
@@ -649,9 +654,13 @@ onloade = function() {
     coll2.style = '';
     togg.innerHTML = 'Collapse';
   }
+  loaded = true;
 };
 onload = onloade;
 onunload = function() {
+  if (!loaded) {
+    return null;
+  }
   localStorage.setItem('startval2', startval.value);
   localStorage.setItem('endval2', endval.value);
   localStorage.setItem('bgcolor2', bgcolor.value);
