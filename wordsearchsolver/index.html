@@ -1,0 +1,31 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Word Search Solver</title>
+    <link href='https://coolguy284.github.io/favicon.ico' rel='shortcut icon' type='image/x-icon' />
+  </head>
+  <body id = 'idd'>
+    <span>Enter Wordsearch Here:</span><br>
+    <textarea id = 'wsi' style = 'width:100%;height:14em;font-size:24px;line-height:15pt;letter-spacing:4.5pt;'></textarea><br>
+    <button onclick = 'Set()'>Set</button>
+    <button onclick = 'Clear()'>Clear</button><br>
+    <span>Wordsearch:</span>
+    <button onclick = 'SetCanvas()'>Canvas</button>
+    <button onclick = 'SetText()'>Text</button><br>
+    <div>
+      <span id = 'canvas'>
+        <canvas id='mycanvas'>
+          Your browser does not support canvases.  Please switch to the text tab. :(
+        </canvas>
+      </span>
+      <span id = 'text' style = 'display:none;'>
+        <span id = 'wsr' style = 'font-family:monospace;font-size:24px;line-height:15pt;letter-spacing:4.5pt;padding:3px 3px 2px;display:block;'></span>
+      </span>
+    </div>
+    <textarea id = 'wb' style = 'width:100%;'></textarea><br>
+    <button onclick = 'Solve()'>Solve</button>
+    <button onclick = 'Set()'>Clear</button>
+    <script src='https://cdn.jsdelivr.net/processing.js/1.4.8/processing.min.js'></script>
+    <script src='index.js'></script>
+  </body>
+</html>
