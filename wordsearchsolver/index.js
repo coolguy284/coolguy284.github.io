@@ -45,6 +45,7 @@ function Set() {
 function Clear() {
   wsst = '';
   wsr.innerHTML = '';
+  PRI.size(100, 100, PRI.P2D);
 }
 var val;
 function SolvePart(mwsst, xp, yp, xd, yd, xw, yw, word) {
@@ -68,7 +69,7 @@ function Solve() {
   wb.value = wb.value.toUpperCase();
   val = wb.value.split(' ');
   PRI.stroke(255, 255, 0);
-  PRI.strokeWeight(15);
+  PRI.strokeWeight(10);
   PRI.background(255);
   sel = [];
   for (var i in val) {
