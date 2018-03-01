@@ -3,7 +3,7 @@ date = new Date();
 id = new Date(2017, 11, 7, 0, 0, 0);
 cd = new Date(date.getFullYear(), date.getMonth()+1, date.getDate(), 0, 0, 0);
 dif = Math.round(Math.abs((id.getTime() - cd.getTime())/86400000));
-sd = 399-dif*3;
+sd = 408-dif*3;
 UpdDate = function() {
   dl = {
     'sf': new Date(date.getFullYear(), date.getMonth(), date.getDate(), 8, 0, 0, 0),
@@ -12,6 +12,10 @@ UpdDate = function() {
     'sct': new Date(date.getFullYear(), date.getMonth(), date.getDate(), 14, 23, 0, 0),
     's1f': new Date(date.getFullYear(), date.getMonth(), date.getDate(), 8, 0, 0, 0),
     's1t': new Date(date.getFullYear(), date.getMonth(), date.getDate(), 9, 13, 0, 0),
+    's11f': new Date(date.getFullYear(), date.getMonth(), date.getDate(), 8, 0, 0, 0),
+    's11t': new Date(date.getFullYear(), date.getMonth(), date.getDate(), 9, 13, 0, 0),
+    's12f': new Date(date.getFullYear(), date.getMonth(), date.getDate(), 8, 0, 0, 0),
+    's12t': new Date(date.getFullYear(), date.getMonth(), date.getDate(), 9, 13, 0, 0),
     's3f': new Date(date.getFullYear(), date.getMonth(), date.getDate(), 9, 13, 0, 0),
     's3t': new Date(date.getFullYear(), date.getMonth(), date.getDate(), 9, 55, 0, 0),
     's4f': new Date(date.getFullYear(), date.getMonth(), date.getDate(), 9, 55, 0, 0),
