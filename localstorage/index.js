@@ -1,6 +1,6 @@
 function CheckPass(val) {
   if (val == 'cookie' && ['l10m', 'l1m', 'p10m', 'p1m'].includes(selvalc.value)) {
-    return sha256.hex(pass.value) == '2850663b807a4763bad07f07272b2d8586654fcecb5346f136669832375806e8';
+    return sha256.hex(pass.value) == 'ea787940551bdf0ea0cd3080218a0970b7cfc033c60f39f8fa4472915a205f57';
   }
   return true;
 }
