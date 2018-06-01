@@ -1,13 +1,13 @@
 var date, id, cd, dif, sd, UpdDate, hnl;
 date = new Date();
-id = new Date(2017, 11, 7, 0, 0, 0);
+id = new Date(2018, 6, 1, 0, 0, 0);
 cd = new Date(date.getFullYear(), date.getMonth()+1, date.getDate(), 0, 0, 0);
 dif = Math.round(Math.abs((id.getTime() - cd.getTime())/86400000));
-sd = 562-dif*3;
+sd = 5-dif*3;
 UpdDate = function() {
   dl = {
     'sf': new Date(date.getFullYear(), date.getMonth(), date.getDate(), 8, 0, 0, 0),
-    'st': new Date(date.getFullYear(), date.getMonth(), date.getDate(), 14, 23, sd, (sd - Math.floor(sd)) * 1000),
+    'st': new Date(date.getFullYear(), date.getMonth(), date.getDate(), 14, 22, sd, (sd - Math.floor(sd)) * 1000),
     'scf': new Date(date.getFullYear(), date.getMonth(), date.getDate(), 8, 0, 0, 0),
     'sct': new Date(date.getFullYear(), date.getMonth(), date.getDate(), 14, 23, 0, 0),
     's1f': new Date(date.getFullYear(), date.getMonth(), date.getDate(), 8, 0, 0, 0),
