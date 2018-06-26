@@ -103,7 +103,7 @@
 				let surl2 = surl[1].split(':');
 				ps.hostname = surl2[0];
 				if (surl2.length == 2) {
-					ps.port = surl2[1];
+					ps.port = parseInt(surl2[1]);
 				} else {
 					if (ps.proto == 'http') {
 						ps.port = 80;

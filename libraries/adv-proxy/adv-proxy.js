@@ -24,126 +24,186 @@ global.datajs = {
 	shead: '',
 	sfhead: '',
 };
-http.createServer(function (req, res) {
+global.datajsu = {
+	head: {
+		host: new Function('req', 'hostname', 'port', 'proto', 'return hostname;'),
+	},
+};
+var svfuncr = function (req, res) {
+	if (req.connection.remoteAddress == '::ffff:127.0.0.1') {
+		if (req.url == datajs.path) {
+			let data = fs.readFileSync('websites/indexredirect.html');
+			res.writeHead(200, {'Content-Type':'text/html; charset=utf-8'});
+			res.write(data.toString().replace('{path}', datajs.path));
+			res.end();
+			return;
+		} else if (req.url == (datajs.path + '/')) {
+			let data = fs.readFileSync('websites/indexredirect.html');
+			res.writeHead(200, {'Content-Type':'text/html; charset=utf-8'});
+			res.write(data.toString().replace('{path}', datajs.path));
+			res.end();
+			return;
+		} else if (req.url == (datajs.path + '/index.html')) {
+			let data = fs.readFileSync('websites/index.html');
+			res.writeHead(200, {'Content-Type':'text/html; charset=utf-8'});
+			res.write(data.toString().replace('{path}', datajs.path));
+			res.end();
+			return;
+		} else if (req.url == (datajs.path + '/base64.js')) {
+			let data = fs.readFileSync('websites/base64.js');
+			res.writeHead(200, {'Content-Type':'text/js; charset=utf-8'});
+			res.write(data);
+			res.end();
+			return;
+		} else if (req.url == (datajs.path + '/chead.txt')) {
+			res.writeHead(200, {'Content-Type':'text/plain; charset=utf-8'});
+			res.write(datajs.chead);
+			res.end();
+			return;
+		} else if (req.url == (datajs.path + '/cfhead.txt')) {
+			res.writeHead(200, {'Content-Type':'text/plain; charset=utf-8'});
+			res.write(datajs.cfhead);
+			res.end();
+			return;
+		} else if (req.url == (datajs.path + '/shead.txt')) {
+			res.writeHead(200, {'Content-Type':'text/plain; charset=utf-8'});
+			res.write(datajs.shead);
+			res.end();
+			return;
+		} else if (req.url == (datajs.path + '/sfhead.txt')) {
+			res.writeHead(200, {'Content-Type':'text/plain; charset=utf-8'});
+			res.write(datajs.shead);
+			res.end();
+			return;
+		} else if (req.url == (datajs.path + '/data.json')) {
+			let ps = {
+				head: {},
+				headmode: datajs.headmode,
+				hostname: datajs.hostname,
+				port: datajs.port,
+				proto: datajs.proto,
+				chead: datajs.chead,
+				cfhead: datajs.cfhead,
+				shead: datajs.shead,
+				sfhead: datajs.sfhead,
+			}
+			for (var i in datajs.head) {
+				let hs = datajs.head[i].toString();
+				ps.head[i] = hs.substring(33, hs.length - 2);
+			}
+			res.writeHead(200, {'Content-Type':'text/plain; charset=utf-8'});
+			res.write(JSON.stringify(ps));
+			res.end();
+			return;
+		} else if (req.url.substr(0, datajs.path.length + 5) == (datajs.path + '/s?d=')) {
+			let dat = JSON.parse(b64.decode(req.url.substr(datajs.path.length + 5, Infinity)));
+			datajs.head = {};
+			for (var i in dat.head) {
+				datajs.head[i] = Function('req', dat.head[i]);
+			}
+			datajs.headmode = dat.headmode;
+			datajs.hostname = dat.hostname;
+			datajs.port = dat.port;
+			datajs.proto = dat.proto;
+			res.writeHead(204);
+			res.end();
+			return;
+		}
+	}
+	datajs.chead = util.inspect(req.headers);
+	if (datajs.headmode == 'add') {
+		for (var i in datajs.head) {
+			req.headers[i] = datajs.head[i](req);
+		}
+	} else if (datajs.headmode == 'rep') {
+		req.headers = {};
+		for (var i in datajs.head) {
+			req.headers[i] = datajs.head[i](req);
+		}
+	}
+	datajs.cfhead = util.inspect(req.headers);
+	let reqs;
+	if (datajs.proto == 'http') {
+		reqs = http.request({'hostname' : datajs.hostname, 'port' : datajs.port, 'method' : req.method, 'path' : req.url, 'headers' : req.headers}, function (resp) {
+			datajs.shead = util.inspect(resp.headers);
+			res.writeHead(resp.statusCode, resp.headers);
+			resp.pipe(res);
+		});
+	} else if (datajs.proto == 'https') {
+		reqs = https.request({'hostname' : datajs.hostname, 'port' : datajs.port, 'method' : req.method, 'path' : req.url, 'headers' : req.headers}, function (resp) {
+			datajs.shead = util.inspect(resp.headers);
+			res.writeHead(resp.statusCode, resp.headers);
+			resp.pipe(res);
+		});
+	}
+	reqs.on('error', (err) => {
+		console.log(err.stack);
+		res.writeHead(503, {'Content-Type':'text/plain; charset=utf-8'});
+		res.write(err.stack);
+		res.end();
+	});
+	req.pipe(reqs);
+};
+var svfuncu = function (req, res) {
+	let ind = req.url.search(/[^\/:]\/[^\/]?/g) + 1;
+	let surl = req.url.substr(0, ind).split('://');
+	if (surl.length == 1) {
+		surl = ['http', surl[0]];
+	}
+	let proto = surl[0];
+	let surl2 = surl[1].split(':');
+	let hostname = surl2[0];
+	let port;
+	if (surl2.length == 2) {
+		port = parseInt(surl2[1]);
+	} else {
+		if (proto == 'http') {
+			port = 80;
+		} else if (proto == 'https') {
+			port = 443;
+		}
+	}
+	datajs.chead = util.inspect(req.headers);
+	for (var i in datajsu.head) {
+		req.headers[i] = datajsu.head[i](req, hostname, port, proto);
+	}
+	datajs.cfhead = util.inspect(req.headers);
+	let reqs;
+	if (proto == 'http') {
+		reqs = http.request({'hostname' : hostname, 'port' : port, 'method' : req.method, 'path' : req.url.substr(ind, Infinity), 'headers' : req.headers}, function (resp) {
+			datajs.shead = util.inspect(resp.headers);
+			res.writeHead(resp.statusCode, resp.headers);
+			resp.pipe(res);
+		});
+	} else if (proto == 'https') {
+		reqs = https.request({'hostname' : hostname, 'port' : port, 'method' : req.method, 'path' : req.url.substr(ind, Infinity), 'headers' : req.headers}, function (resp) {
+			datajs.shead = util.inspect(resp.headers);
+			res.writeHead(resp.statusCode, resp.headers);
+			resp.pipe(res);
+		});
+	}
+	reqs.on('error', (err) => {
+		console.log(err.stack);
+		res.writeHead(503, {'Content-Type':'text/plain; charset=utf-8'});
+		res.write(err.stack);
+		res.end();
+	});
+	req.pipe(reqs);
+};
+var svfunc = function (req, res) {
 	try {
 		console.log('[' + new Date().toISOString() + '] ' + ipform(req.connection.remoteAddress) + ' ' + (req.connection.encrypted ? 'https' : 'http ') + ' ' + req.method + ' ' + req.url);
-		if (req.connection.remoteAddress == '::ffff:127.0.0.1') {
-			if (req.url == datajs.path) {
-				let data = fs.readFileSync('websites/indexredirect.html');
-				res.writeHead(200, {'Content-Type':'text/html; charset=utf-8'});
-				res.write(data.toString().replace('{path}', datajs.path));
-				res.end();
-				return;
-			} else if (req.url == (datajs.path + '/')) {
-				let data = fs.readFileSync('websites/indexredirect.html');
-				res.writeHead(200, {'Content-Type':'text/html; charset=utf-8'});
-				res.write(data.toString().replace('{path}', datajs.path));
-				res.end();
-				return;
-			} else if (req.url == (datajs.path + '/index.html')) {
-				let data = fs.readFileSync('websites/index.html');
-				res.writeHead(200, {'Content-Type':'text/html; charset=utf-8'});
-				res.write(data.toString().replace('{path}', datajs.path));
-				res.end();
-				return;
-			} else if (req.url == (datajs.path + '/base64.js')) {
-				let data = fs.readFileSync('websites/base64.js');
-				res.writeHead(200, {'Content-Type':'text/js; charset=utf-8'});
-				res.write(data);
-				res.end();
-				return;
-			} else if (req.url == (datajs.path + '/chead.txt')) {
-				res.writeHead(200, {'Content-Type':'text/plain; charset=utf-8'});
-				res.write(datajs.chead);
-				res.end();
-				return;
-			} else if (req.url == (datajs.path + '/cfhead.txt')) {
-				res.writeHead(200, {'Content-Type':'text/plain; charset=utf-8'});
-				res.write(datajs.cfhead);
-				res.end();
-				return;
-			} else if (req.url == (datajs.path + '/shead.txt')) {
-				res.writeHead(200, {'Content-Type':'text/plain; charset=utf-8'});
-				res.write(datajs.shead);
-				res.end();
-				return;
-			} else if (req.url == (datajs.path + '/sfhead.txt')) {
-				res.writeHead(200, {'Content-Type':'text/plain; charset=utf-8'});
-				res.write(datajs.shead);
-				res.end();
-				return;
-			} else if (req.url == (datajs.path + '/data.json')) {
-				let ps = {
-					head: {},
-					headmode: datajs.headmode,
-					hostname: datajs.hostname,
-					port: datajs.port,
-					proto: datajs.proto,
-					chead: datajs.chead,
-					cfhead: datajs.cfhead,
-					shead: datajs.shead,
-					sfhead: datajs.sfhead,
-				}
-				for (var i in datajs.head) {
-					let hs = datajs.head[i].toString();
-					ps.head[i] = hs.substring(33, hs.length - 2);
-				}
-				res.writeHead(200, {'Content-Type':'text/plain; charset=utf-8'});
-				res.write(JSON.stringify(ps));
-				res.end();
-				return;
-			} else if (req.url.substr(0, datajs.path.length + 5) == (datajs.path + '/s?d=')) {
-				let dat = JSON.parse(b64.decode(req.url.substr(datajs.path.length + 5, Infinity)));
-				datajs.head = {};
-				for (var i in dat.head) {
-					datajs.head[i] = Function('req', dat.head[i]);
-				}
-				datajs.headmode = dat.headmode;
-				datajs.hostname = dat.hostname;
-				datajs.port = dat.port;
-				datajs.proto = dat.proto;
-				res.writeHead(204);
-				res.end();
-				return;
-			}
+		if (req.url.substr(0, 1) == '/') {
+			svfuncr(req, res);
+		} else {
+			svfuncu(req, res);
 		}
-		datajs.chead = util.inspect(req.headers);
-		if (datajs.headmode == 'add') {
-			for (var i in datajs.head) {
-				req.headers[i] = datajs.head[i](req);
-			}
-		} else if (datajs.headmode == 'rep') {
-			req.headers = {};
-			for (var i in datajs.head) {
-				req.headers[i] = datajs.head[i](req);
-			}
-		}
-		datajs.cfhead = util.inspect(req.headers);
-		let reqs;
-		if (datajs.proto == 'http') {
-			reqs = http.request({'hostname' : datajs.hostname, 'port' : datajs.port, 'method' : req.method, 'path' : req.url, 'headers' : req.headers}, function (resp) {
-				datajs.shead = util.inspect(resp.headers);
-				res.writeHead(resp.statusCode, resp.headers);
-				resp.pipe(res);
-			});
-		} else if (datajs.proto == 'https') {
-			reqs = https.request({'hostname' : datajs.hostname, 'port' : datajs.port, 'method' : req.method, 'path' : req.url, 'headers' : req.headers}, function (resp) {
-				datajs.shead = util.inspect(resp.headers);
-				res.writeHead(resp.statusCode, resp.headers);
-				resp.pipe(res);
-			});
-		}
-		reqs.on('error', (err) => {
-			console.log(err.stack);
-			res.writeHead(503, {'Content-Type':'text/plain; charset=utf-8'});
-			res.write(err.stack);
-			res.end();
-		});
-		req.pipe(reqs);
 	} catch (e) {
 		console.log('Error (proxy): ' + e.stack);
 		res.writeHead(503, {'Content-Type':'text/plain; charset=utf-8'});
 		res.write('Error (proxy): ' + e.stack);
 		res.end();
 	}
-}).listen(80);
+};
+http.createServer(svfunc).listen(80);
+https.createServer(svfunc).listen(443);
