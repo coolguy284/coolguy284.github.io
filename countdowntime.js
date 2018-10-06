@@ -9,9 +9,9 @@ function getMonday(d) {
       diff = d.getDate() - day + (day == 0 ? -6:1); // adjust when day is sunday
   return new Date(d.setDate(diff));
 }
-function getSunday(d) {
+function getNextMonday(d) {
   var day = d.getDay(),
-      diff = d.getDate() + (7 - (day == 0 ? 6:day)); // adjust when day is sunday
+      diff = d.getDate() - day + (day == 0 ? -6:1) + 7; // adjust when day is sunday
   return new Date(d.setDate(diff));
 }
 UpdDate = function() {
@@ -45,7 +45,7 @@ UpdDate = function() {
     'df': new Date(date.getFullYear(), date.getMonth(), date.getDate(), 0, 0, 0, 0),
     'dt': new Date(date.getFullYear(), date.getMonth(), date.getDate()+1, 0, 0, 0, 0),
     'wf': getMonday(new Date(date.getFullYear(), date.getMonth(), date.getDate(), 0, 0, 0, 0)),
-    'wt': getSunday(new Date(date.getFullYear(), date.getMonth(), date.getDate(), 0, 0, 0, 0)),
+    'wt': getNextMonday(new Date(date.getFullYear(), date.getMonth(), date.getDate(), 0, 0, 0, 0)),
     'mf': new Date(date.getFullYear(), date.getMonth(), 1, 0, 0, 0, 0),
     'mt': new Date(date.getFullYear(), date.getMonth()+1, 1, 0, 0, 0, 0),
     'yf': new Date(date.getFullYear(), 0, 1, 0, 0, 0, 0),
