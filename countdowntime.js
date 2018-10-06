@@ -4,6 +4,16 @@ id = new Date(2018, 8, 30, 0, 0, 0);
 cd = new Date(date.getFullYear(), date.getMonth()+1, date.getDate(), 0, 0, 0);
 dif = Math.round(Math.abs((id.getTime() - cd.getTime())/86400000));
 sd = 29-dif*3;
+function getMonday(d) {
+  var day = d.getDay(),
+      diff = d.getDate() - day + (day == 0 ? -6:1); // adjust when day is sunday
+  return new Date(d.setDate(diff));
+}
+function getSunday(d) {
+  var day = d.getDay(),
+      diff = d.getDate() + (7 - (day == 0 ? 6:day)); // adjust when day is sunday
+  return new Date(d.setDate(diff));
+}
 UpdDate = function() {
   dl = {
     'sf': new Date(date.getFullYear(), date.getMonth(), date.getDate(), 8, 0, 0, 0),
@@ -34,8 +44,8 @@ UpdDate = function() {
     'ht': new Date(date.getFullYear(), date.getMonth(), date.getDate(), date.getHours()+1, 0, 0, 0),
     'df': new Date(date.getFullYear(), date.getMonth(), date.getDate(), 0, 0, 0, 0),
     'dt': new Date(date.getFullYear(), date.getMonth(), date.getDate()+1, 0, 0, 0, 0),
-    'wf': new Date(),
-    'wt': new Date(),
+    'wf': getMonday(new Date(date.getFullYear(), date.getMonth(), date.getDate(), 0, 0, 0, 0)),
+    'wt': getSunday(new Date(date.getFullYear(), date.getMonth(), date.getDate(), 0, 0, 0, 0)),
     'mf': new Date(date.getFullYear(), date.getMonth(), 1, 0, 0, 0, 0),
     'mt': new Date(date.getFullYear(), date.getMonth()+1, 1, 0, 0, 0, 0),
     'yf': new Date(date.getFullYear(), 0, 1, 0, 0, 0, 0),
@@ -46,7 +56,7 @@ UpdDate = function() {
     'ct': new Date(Math.ceil(date.getFullYear() / 100) * 100, 0, 1, 0, 0, 0, 0),
     'mlf': new Date(Math.floor(date.getFullYear() / 1000) * 1000, 0, 1, 0, 0, 0, 0),
     'mlt': new Date(Math.ceil(date.getFullYear() / 1000) * 1000, 0, 1, 0, 0, 0, 0),
-    'net':new Date('2024-04-08T17:59:17.000Z')
+    'net': new Date('2024-04-08T17:59:17.000Z')
   };
 };
 hnl = {
