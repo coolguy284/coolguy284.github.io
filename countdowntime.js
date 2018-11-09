@@ -1,7 +1,7 @@
 var date, id, cd, dif, sd, UpdDate, hnl;
 date = new Date();
 id = new Date(2018, 10, 8, 0, 0, 0);
-cd = new Date(date.getFullYear(), date.getMonth()+1, date.getDate(), 0, 0, 0);
+cd = new Date(date.getFullYear(), date.getMonth(), date.getDate(), 0, 0, 0);
 dif = Math.round(Math.abs((id.getTime() - cd.getTime())/86400000));
 sd = 36-dif*3;
 function getMonday(d) {
