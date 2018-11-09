@@ -1,9 +1,9 @@
 var date, id, cd, dif, sd, UpdDate, hnl;
 date = new Date();
-id = new Date(2018, 8, 30, 0, 0, 0);
+id = new Date(2018, 10, 8, 0, 0, 0);
 cd = new Date(date.getFullYear(), date.getMonth()+1, date.getDate(), 0, 0, 0);
 dif = Math.round(Math.abs((id.getTime() - cd.getTime())/86400000));
-sd = 38-dif*3;
+sd = 36-dif*3;
 function getMonday(d) {
   var day = d.getDay(),
       diff = d.getDate() - day + (day == 0 ? -6:1); // adjust when day is sunday
@@ -17,7 +17,7 @@ function getNextMonday(d) {
 UpdDate = function() {
   dl = {
     'sf': new Date(date.getFullYear(), date.getMonth(), date.getDate(), 8, 0, 0, 0),
-    'st': new Date(date.getFullYear(), date.getMonth(), date.getDate(), 14, 30, sd, (sd - Math.floor(sd)) * 1000),
+    'st': new Date(date.getFullYear(), date.getMonth(), date.getDate(), 14, 28, sd, (sd - Math.floor(sd)) * 1000),
     'scf': new Date(date.getFullYear(), date.getMonth(), date.getDate(), 8, 0, 0, 0),
     'sct': new Date(date.getFullYear(), date.getMonth(), date.getDate(), 14, 23, 0, 0),
     's1f': new Date(date.getFullYear(), date.getMonth(), date.getDate(), 8, 0, 0, 0),
