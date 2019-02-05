@@ -5,8 +5,8 @@
   </head>
   <body>
     <script>
-      onbeforeunload = function() { return null; };
-      onunload = function() { return null; };
+      window.onbeforeunload = function() { return "You shouldn't leave"; };
+      window.onunload = function() { return "You shouldn't leave"; };
     </script>
   </body>
 </html>
