@@ -5,8 +5,10 @@
   </head>
   <body>
     <script>
-      window.onbeforeunload = function() { return "You shouldn't leave"; };
-      window.onunload = function() { return "You shouldn't leave"; };
+    window.onbeforeunload = confirmExit;
+    function confirmExit() {
+        return "You have attempted to leave this page. Are you sure?";
+    }
     </script>
   </body>
 </html>
