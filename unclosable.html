@@ -4,10 +4,14 @@
     <title>Unclosable page</title>
   </head>
   <body>
+    <p>Here is some text for text purposes:</p>
+    <input type = 'text' id = 'tex'><input type = 'button' id = 'submitbtn'>
     <script>
     window.onbeforeunload = confirmExit;
     function confirmExit() {
+      if (tex.value.length > -1) {
         return "You have attempted to leave this page. Are you sure?";
+      }
     }
     </script>
   </body>
