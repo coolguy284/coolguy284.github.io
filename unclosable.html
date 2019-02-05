@@ -1,0 +1,12 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Unclosable page</title>
+  </head>
+  <body>
+    <script>
+      onbeforeunload = function() { return null; };
+      onunload = function() { return null; };
+    </script>
+  </body>
+</html>
