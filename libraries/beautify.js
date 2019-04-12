@@ -6,6 +6,7 @@ function BeautifyC(num) {
   return parts.join('.');
 }
 function Beautify(num) {
+  if (Game && Game.prefs.format) return num.toString()
   if (num < 0) {
     return '-' + Beautify(-num);
   }
