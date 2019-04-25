@@ -1,9 +1,9 @@
 var date, id, cd, dif, sd, UpdDate, hnl;
 date = new Date();
-id = new Date(2018, 10, 9, 0, 0, 0);
+id = new Date(2019, 3, 25, 0, 0, 0);
 cd = new Date(date.getFullYear(), date.getMonth(), date.getDate(), 0, 0, 0);
 dif = Math.round(Math.abs((id.getTime() - cd.getTime())/86400000));
-sd = 223-dif*3;
+sd = 22-dif*3;
 function getMonday(d) {
   var day = d.getDay(),
       diff = d.getDate() - day + (day == 0 ? -6:1); // adjust when day is sunday
