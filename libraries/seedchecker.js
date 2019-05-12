@@ -18,8 +18,8 @@ sBack = () => Game.seed = sToSeed(sToNum(Game.seed) - 1);
 sForw = () => Game.seed = sToSeed(sToNum(Game.seed) + 1);
 sKeyDown = (e) => {
   if (e.shiftKey) {
-    if(e.key == 'I') g();
-    if(e.key == 'O') f();
+    if(e.key == 'I') sBack();
+    if(e.key == 'O') sForw();
   }
 }
-addEventListener('keydown', (e) => sKeyDown(e))
+addEventListener('keydown', (e) => sKeyDown(e));
