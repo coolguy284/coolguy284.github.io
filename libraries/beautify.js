@@ -1,5 +1,5 @@
 // function to determine place value of beautify
-Beautifyp = (v) => Math.max(Math.floor(Math.log10(v / Game.cookiesPs) / 3) * 3, 6);
+Beautifyp = (v) => Math.min(Math.max(Math.floor(Math.log10(v / Game.unbuffedCps) / 3) * 3, 6), 12);
 Beautifyl = ['million', 'billion', 'trillion', 'quadrillion', 'quintillion', 'sextillion', 'septillion', 'octillion', 'nonillion', 'decillion', 'undecillion', 'duodecillion', 'tredecillion', 'quattuordecillion', 'quindecillion', 'sexdecillion', 'septendecillion', 'octodecillion', 'novemdecillion', 'vigintillion']; // prefixes
 // adds commas to string
 function BeautifyC(num) {
