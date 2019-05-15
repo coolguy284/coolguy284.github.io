@@ -1,5 +1,5 @@
 Beautifyp = 6; // place value of beautify
-Beautifypl = 15; // place value of beautify for big values, more than 1000x CPS
+Beautifypl = 12; // place value of beautify for big values, more than 1000x CPS
 Beautifyl = ['million', 'billion', 'trillion', 'quadrillion', 'quintillion', 'sextillion', 'septillion', 'octillion', 'nonillion', 'decillion', 'undecillion', 'duodecillion', 'tredecillion', 'quattuordecillion', 'quindecillion', 'sexdecillion', 'septendecillion', 'octodecillion', 'novemdecillion', 'vigintillion']; // prefixes
 // adds commas to string
 function BeautifyC(num) {
