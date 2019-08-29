@@ -1,1 +1,1 @@
-document.getElementsByTagName('iframe').forEach(x => x.remove())
+document.getElementsByTagName('iframe').forEach(x => { if(x.id.includes('ads')) x.remove(); })
