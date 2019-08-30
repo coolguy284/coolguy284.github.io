@@ -4,4 +4,4 @@ function c284lib_remad() {
   Array.from(document.getElementsByTagName('iframe')).forEach(x => { if(x.id.includes('ads')) x.remove(); });
   Array.from(document.getElementsByTagName('div')).forEach(x => { if (x.id.includes('SiteAd')) x.remove(); });
 }
-c284lib_remad();
+c284lib_remadint = setInterval(c284lib_remad, 100);
