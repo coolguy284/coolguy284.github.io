@@ -45,7 +45,7 @@ UpdDate = function() {
     'mf': new Date(date.getFullYear(), date.getMonth(), 1, 0, 0, 0, 0),
     'mt': new Date(date.getFullYear(), date.getMonth()+1, 1, 0, 0, 0, 0),
     'yf': new Date(date.getFullYear(), 0, 1, 0, 0, 0, 0),
-    'yt': new Date(date.getFullYear()+1, 0, 1, 0, 0, 04, 0),
+    'yt': new Date(date.getFullYear()+1, 0, 1, 0, 0, 0, 0),
     'def': new Date(Math.floor(date.getFullYear() / 10) * 10, 0, 1, 0, 0, 0, 0),
     'det': new Date(Math.ceil(date.getFullYear() / 10) * 10, 0, 1, 0, 0, 0, 0),
     'cf': new Date(Math.floor(date.getFullYear() / 100) * 100, 0, 1, 0, 0, 0, 0),
