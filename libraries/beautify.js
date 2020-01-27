@@ -11,8 +11,8 @@ function BeautifyC(num) {
 function Beautify(num) {
   if (Game && Game.prefs.format) return BeautifyC(num);
   if (num < 0) return '-' + Beautify(-num);
-  if (num < 1000) return num + '';
-  if (num < 1000000) return BeautifyC(num);
+  if (num < 1000) return num.toPrecision(6).replace(/\.0*$/, '');
+  if (num < 1000000) return BeautifyC(num.toPrecision(6).replace(/\.0*$/, ''));
   var pv = Beautifyp(num);
   var sec = Math.floor(Math.log10(num)/3-2);
   var sed = num / Math.pow(10, sec * 3 + 6);
