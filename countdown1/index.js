@@ -344,7 +344,7 @@ height = 400;
 size(width, height, P2D);
 date = new Date();
 af = [8, 0, 0, 0];
-at = [14, 23, sd, 0];
+at = [14, 42, 27, 0];
 while (at[2] < 0) {at[1]-=1;at[2]+=60;}
 while (at[2] > 60) {at[1]+=1;at[2]-=60;}
 while (at[1] < 0) {at[0]-=1;at[1]+=60;}
