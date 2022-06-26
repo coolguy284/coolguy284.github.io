@@ -3,3 +3,4 @@ User-agent: AdsBot-Google
 User-agent: AdsBot-Google-Mobile
 User-agent: Mediapartners-Google
 Allow: /
+Sitemap: https://coolguy284.github.io/sitemap.xml

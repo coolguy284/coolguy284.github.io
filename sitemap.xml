@@ -1,0 +1,275 @@
+<?xml version = '1.0' encoding = 'utf-8'?>
+<urlset xmlns = 'http://www.sitemaps.org/schemas/sitemap/0.9'>
+  <url>
+    <loc>https://coolguy284.github.io/index.html</loc>
+    <lastmod>2022-06-25T20:56:44.000+00:00</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  
+  <url>
+    <loc>https://coolguy284.github.io/spacetypes/index.html</loc>
+    <lastmod>2017-10-20T14:23:34.000+00:00</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  
+  <url>
+    <loc>https://coolguy284.github.io/infloop/index.html</loc>
+    <lastmod>2017-12-05T14:40:57.000+00:00</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  
+  <url>
+    <loc>https://coolguy284.github.io/bellringlog-2017-2018.html</loc>
+    <lastmod>2019-05-06T18:44:12.000+00:00</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  
+  <url>
+    <loc>https://coolguy284.github.io/bellringlog-2018-2019.html</loc>
+    <lastmod>2021-12-18T17:57:57.000+00:00</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  
+  <url>
+    <loc>https://coolguy284.github.io/simple.html</loc>
+    <lastmod>2017-11-07T14:06:19.000+00:00</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  
+  <url>
+    <loc>https://coolguy284.github.io/countdownb/index.html</loc>
+    <lastmod>2017-10-20T14:32:27.000+00:00</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  
+  <url>
+    <loc>https://coolguy284.github.io/countdown1/index.html</loc>
+    <lastmod>2017-11-13T18:52:21.000+00:00</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  
+  <url>
+    <loc>https://coolguy284.github.io/countdown2/index.html</loc>
+    <lastmod>2019-10-28T18:16:10.000+00:00</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  
+  <url>
+    <loc>https://coolguy284.github.io/countdown/index.html</loc>
+    <lastmod>2017-10-24T13:52:14.000+00:00</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  
+  <url>
+    <loc>https://coolguy284.github.io/clickspeed/index.html</loc>
+    <lastmod>2017-10-25T12:45:13.000+00:00</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  
+  <url>
+    <loc>https://coolguy284.github.io/press-speed/index.html</loc>
+    <lastmod>2017-10-25T13:59:11.000+00:00</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  
+  <url>
+    <loc>https://coolguy284.github.io/htmleditor/index.html</loc>
+    <lastmod>2018-01-22T13:36:15.000+00:00</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  
+  <url>
+    <loc>https://coolguy284.github.io/localstorage/index.html</loc>
+    <lastmod>2017-11-28T17:21:44.000+00:00</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  
+  <url>
+    <loc>https://coolguy284.github.io/note/index.html</loc>
+    <lastmod>2017-12-11T16:53:18.000+00:00</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  
+  <url>
+    <loc>https://coolguy284.github.io/wordsearchsolver/index.html</loc>
+    <lastmod>2018-02-27T19:24:40.000+00:00</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  
+  <url>
+    <loc>https://coolguy284.github.io/grapher/index.html</loc>
+    <lastmod>2017-12-13T19:24:40.000+00:00</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  
+  <url>
+    <loc>https://coolguy284.github.io/noise/index.html</loc>
+    <lastmod>2017-12-13T18:44:15.000+00:00</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  
+  <url>
+    <loc>https://coolguy284.github.io/texteditor/index.html</loc>
+    <lastmod>2017-10-25T16:34:10.000+00:00</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  
+  <url>
+    <loc>https://coolguy284.github.io/technical.html</loc>
+    <lastmod>2022-06-26T06:07:54.110+00:00</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  
+  <url>
+    <loc>https://coolguy284.github.io/libraries/index.html</loc>
+    <lastmod>2022-06-25T20:56:44.000+00:00</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
+    <loc>https://coolguy284.github.io/favicon.ico</loc>
+    <lastmod>2017-10-24T16:02:23.000+00:00</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
+    <loc>https://coolguy284.github.io/robots.txt</loc>
+    <lastmod>2022-06-25T20:56:44.000+00:00</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
+    <loc>https://coolguy284.github.io/sitemap.xml</loc>
+    <lastmod>2022-06-26T06:08:19.000+00:00</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
+    <loc>https://coolguy284.github.io/countdowntime.js</loc>
+    <lastmod>2020-01-01T04:52:17.000+00:00</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
+    <loc>https://coolguy284.github.io/libraries/beautify.js</loc>
+    <lastmod>2020-01-27T18:30:36.000+00:00</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <url>
+    <loc>https://coolguy284.github.io/libraries/cookieprofiler.js</loc>
+    <lastmod>2019-04-19T15:24:58.000+00:00</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <url>
+    <loc>https://coolguy284.github.io/libraries/jscoll.js</loc>
+    <lastmod>2017-12-13T01:01:10.000+00:00</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <url>
+    <loc>https://coolguy284.github.io/libraries/remad.js</loc>
+    <lastmod>2020-02-06T14:48:47.000+00:00</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <url>
+    <loc>https://coolguy284.github.io/libraries/remallslow.js</loc>
+    <lastmod>2019-09-19T16:02:11.000+00:00</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <url>
+    <loc>https://coolguy284.github.io/libraries/seedchecker.js</loc>
+    <lastmod>2019-05-12T14:54:07.000+00:00</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <url>
+    <loc>https://coolguy284.github.io/libraries/setwrinklers.js</loc>
+    <lastmod>2019-05-12T20:40:44.000+00:00</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <url>
+    <loc>https://coolguy284.github.io/libraries/adv-proxy/websites/base64.js</loc>
+    <lastmod>2018-06-22T22:09:32.000+00:00</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <url>
+    <loc>https://coolguy284.github.io/libraries/adv-proxy/websites/index.html</loc>
+    <lastmod>2018-06-26T00:16:56.000+00:00</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <url>
+    <loc>https://coolguy284.github.io/libraries/adv-proxy/websites/indexredirect.html</loc>
+    <lastmod>2018-06-22T22:09:32.000+00:00</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <url>
+    <loc>https://coolguy284.github.io/libraries/adv-proxy/adv-proxy.bat</loc>
+    <lastmod>2018-06-22T22:09:32.000+00:00</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <url>
+    <loc>https://coolguy284.github.io/libraries/adv-proxy/adv-proxy.js</loc>
+    <lastmod>2018-06-26T00:16:56.000+00:00</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <url>
+    <loc>https://coolguy284.github.io/libraries/adv-proxy/b64.js</loc>
+    <lastmod>2018-06-22T22:09:32.000+00:00</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <url>
+    <loc>https://coolguy284.github.io/libraries/adv-proxy/echo.js</loc>
+    <lastmod>2018-06-22T22:09:32.000+00:00</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+</urlset>
