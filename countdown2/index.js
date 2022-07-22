@@ -423,7 +423,7 @@ ResetOffset = function() {
   console.log('Reset Offset To: ' + offsetv.value);
 };/*
 getTime = function(zone, success) {
-var url = 'http://json-time.appspot.com/time.json?tz=' + zone,
+var url = 'https://json-time.appspot.com/time.json?tz=' + zone,
 ud = 'json' + (+new Date());
 window[ud]= function(o) {
 success && success(new Date(o.datetime));

@@ -177,7 +177,7 @@ var start_x = width / 2 - cloth_width * spacing / 2;
         }
     }
 strokeWeight(0.5);
-println("Note, this code is NOT mine. I simply adapted it from CodePen:\nhttp://codepen.io/dissimulate/pen/KrAwx");
+println("Note, this code is NOT mine. I simply adapted it from CodePen:\nhttps://codepen.io/dissimulate/pen/KrAwx");
 fill(227, 227, 227);
 var draw = function() {
     background(255, 255, 255);
