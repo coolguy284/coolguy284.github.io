@@ -69,15 +69,15 @@ var Ongetcss = function () {
 };
 var htmlreq = new XMLHttpRequest();
 htmlreq.addEventListener('load', Ongethtml);
-htmlreq.open('GET', 'https://coolguy284.github.io/countdown2/index.html');
+htmlreq.open('GET', './index.html');
 htmlreq.send();
 var jsreq = new XMLHttpRequest();
 jsreq.addEventListener('load', Ongetjs);
-jsreq.open('GET', 'https://coolguy284.github.io/countdown2/index.js');
+jsreq.open('GET', './index.js');
 jsreq.send();
 var cssreq = new XMLHttpRequest();
 cssreq.addEventListener('load', Ongetcss);
-cssreq.open('GET', 'https://coolguy284.github.io/countdown2/index.css');
+cssreq.open('GET', './index.css');
 cssreq.send();
 }
 {
