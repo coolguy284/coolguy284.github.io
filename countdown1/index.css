@@ -23,6 +23,11 @@
   background: #000;
   color: #0f0;
 }
+.span {
+  font-family: Arial;
+  font-size: 20px;
+  line-height: 16px;
+}
 #hdiv {
   text-align: center;
 }
@@ -31,4 +36,10 @@
   font-family: Arial;
   display: inline-block;
   line-height: 37px;
+}
+#logd {
+  position: absolute;
+  left: 480px;
+  top: 120px;
+  line-height: 23px;
 }
