@@ -102,7 +102,7 @@ function ColorSearch() {
       }
     }
     if (res) {
-      wsr.innerHTML += '<span style = "background:yellow;">' + mwsst[si] + '</span>';
+      wsr.innerHTML += '<span style = "background-color:yellow;">' + mwsst[si] + '</span>';
     } else {
       wsr.innerHTML += mwsst[si];
     }
